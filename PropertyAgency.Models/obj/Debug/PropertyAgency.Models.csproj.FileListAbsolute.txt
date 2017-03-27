@@ -1,0 +1,5 @@
+C:\Users\PC-PC\documents\visual studio 2015\Projects\PropertyAgency\PropertyAgency.Models\bin\Debug\PropertyAgency.Models.dll
+C:\Users\PC-PC\documents\visual studio 2015\Projects\PropertyAgency\PropertyAgency.Models\bin\Debug\PropertyAgency.Models.pdb
+C:\Users\PC-PC\documents\visual studio 2015\Projects\PropertyAgency\PropertyAgency.Models\obj\Debug\PropertyAgency.Models.csprojResolveAssemblyReference.cache
+C:\Users\PC-PC\documents\visual studio 2015\Projects\PropertyAgency\PropertyAgency.Models\obj\Debug\PropertyAgency.Models.dll
+C:\Users\PC-PC\documents\visual studio 2015\Projects\PropertyAgency\PropertyAgency.Models\obj\Debug\PropertyAgency.Models.pdb
