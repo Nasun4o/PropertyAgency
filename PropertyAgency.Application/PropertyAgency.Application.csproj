@@ -255,6 +255,16 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PropertyAgency.Data\PropertyAgency.Data.csproj">
+      <Project>{8DAB6901-1406-4C39-A1ED-6F9D43D0E233}</Project>
+      <Name>PropertyAgency.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PropertyAgency.Models\PropertyAgency.Models.csproj">
+      <Project>{f5b33aec-d886-42b6-bce4-b3bc7ef97d35}</Project>
+      <Name>PropertyAgency.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

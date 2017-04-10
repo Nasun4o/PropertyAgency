@@ -1,17 +1,16 @@
-﻿using System;
-using System.Globalization;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
-using PropertyAgency.Application.Models;
-
-namespace PropertyAgency.Application.Controllers
+﻿namespace PropertyAgency.Application.Controllers
 {
+    using System.Linq;
+    using System.Threading.Tasks;
+    using System.Web;
+    using System.Web.Mvc;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.Owin;
+    using Microsoft.Owin.Security;
+    using PropertyAgency.Data;
+    using PropertyAgency.Models.EntityModels;
+    using PropertyAgency.Models.ViewModels.Account;
+
     [Authorize]
     public class AccountController : Controller
     {
@@ -151,12 +150,30 @@ namespace PropertyAgency.Application.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new User { UserName = model.Email, Email = model.Email };
+                
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    using (var context = new PropertyAgencyContext())
+                    {
+                        var tenants = new Tenant()
+                                          {
+                                              FullName = "Nako i Dani",
+                                              Description = "Neshto eftino",
+                                              PhoneNumber = "00000000"
+                                          };
+                        
+                        var userProfile = context.Users.FirstOrDefault();
+                        if (userProfile != null)
+                        {
+                            userProfile.Tenants.Add(tenants);
+                        }
+                        context.SaveChanges();
+
+                    }
+
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
@@ -165,6 +182,7 @@ namespace PropertyAgency.Application.Controllers
 
                     return RedirectToAction("Index", "Home");
                 }
+                
                 AddErrors(result);
             }
 
@@ -367,7 +385,7 @@ namespace PropertyAgency.Application.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new User { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {

@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web.Mvc;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PropertyAgency.Application;
-using PropertyAgency.Application.Controllers;
-
-namespace PropertyAgency.Application.Tests.Controllers
+﻿namespace PropertyAgency.Application.Tests.Controllers
 {
+    using System.Web.Mvc;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using PropertyAgency.Application.Controllers;
+
     [TestClass]
     public class HomeControllerTest
     {
