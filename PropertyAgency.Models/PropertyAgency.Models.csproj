@@ -94,7 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntityModels\Property.cs" />
-    <Compile Include="EntityModels\PropertyOwner.cs" />
+    <Compile Include="EntityModels\Landlord.cs" />
     <Compile Include="EntityModels\Tenant.cs" />
     <Compile Include="EntityModels\User.cs" />
     <Compile Include="Enums\PropertyType.cs" />

@@ -12,7 +12,7 @@
         {
             this.Tenants = new HashSet<Tenant>();
             this.Properties = new HashSet<Property>();
-            this.PropertyOwners = new HashSet<PropertyOwner>();
+            this.PropertyOwners = new HashSet<Landlord>();
 
         }
 
@@ -27,7 +27,7 @@
 
         public virtual ICollection<Tenant> Tenants { get; set; }
         public virtual ICollection<Property> Properties { get; set; }
-        public virtual ICollection<PropertyOwner> PropertyOwners { get; set; }
+        public virtual ICollection<Landlord> PropertyOwners { get; set; }
 
     }
 }

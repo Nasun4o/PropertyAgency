@@ -6,7 +6,7 @@
     {
         public int Id { get; set; }
 
-        public virtual PropertyOwner Owner { get; set; }
+        public virtual Landlord Owner { get; set; }
 
         public string FullAddress { get; set; }
 

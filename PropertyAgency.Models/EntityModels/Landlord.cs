@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace PropertyAgency.Models.EntityModels
 {
-    public class PropertyOwner
+    public class Landlord
     {
-        public PropertyOwner()
+        public Landlord()
         {
             this.Properties = new List<Property>();
         }

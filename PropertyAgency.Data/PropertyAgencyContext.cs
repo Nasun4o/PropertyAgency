@@ -12,7 +12,7 @@ namespace PropertyAgency.Data
         }
 
         public virtual DbSet<Tenant> Tenants { get; set; }
-        public virtual DbSet<PropertyOwner> PropertyOwners { get; set; }
+        public virtual DbSet<Landlord> Landlords { get; set; }
         public virtual DbSet<Property> Properties { get; set; }
 
 
