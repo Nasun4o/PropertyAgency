@@ -1,12 +1,13 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿
+body {
+    overflow-y:hidden;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    width:90%!important;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -22,3 +23,83 @@ select,
 textarea {
     max-width: 280px;
 }
+/*HOMEPAGE START*/
+.navbar-fixed-top, .navbar-fixed-bottom {
+    position: inherit;
+    float: left;
+    width: 10%;
+    min-height: 949px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+}
+
+.container {
+    max-width: none;
+    width: 100%;
+    float: left;
+    padding:0;
+    margin:0;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #fff;
+}
+
+.navbar-brand {
+    font-size: 42px;
+    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+    float: none;
+    text-align: left;
+    margin: 15px auto;
+}
+.navbar-header {
+    margin: 15px auto;
+}
+.navbar > .container .navbar-brand {
+    margin-left: 0;
+}
+.navbar-collapse {
+    padding:0;
+}
+.navbar-nav > li {
+    float:left;
+    width:100%;
+    text-align:left;
+    text-transform:uppercase;
+}
+.navbar-collapse .navbar-nav.navbar-right:last-child {
+    margin:0;
+}
+.navbar-right {
+    float:none!important;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color:#ffffff;
+    font-size:15px;
+    font-family:Arial;
+}
+.navbar-inverse .navbar-nav > li > a:hover {
+    background: #646260;
+    font-size:17px;
+}
+.img-home {
+    width:100%;
+    max-height:900px;
+}
+/*HOMEPAGE END*/
+
+/*LOG IN START*/
+.login-form {
+    width: 25%;
+    position: fixed;
+    top: 30%;
+    left: 40%;
+    background: #ababab;
+    border-radius: 10px;
+}
+
+/*LOG IN END*/

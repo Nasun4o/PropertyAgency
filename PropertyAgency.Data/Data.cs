@@ -1,6 +1,6 @@
 ﻿namespace PropertyAgency.Data
 {
-    public  class Data
+    public class Data
     {
         private static PropertyAgencyContext context;
 
