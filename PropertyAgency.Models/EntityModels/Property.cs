@@ -12,14 +12,14 @@
 
         public double? ApartmentSize { get; set; }
 
-        public int NumberOf0Rooms { get; set; }
+        public int NumberOfRooms { get; set; }
 
         public bool IsActive { get; set; }
         //For Rent or for Sale
         public PropertyType Type { get; set; }
         //TODO: Images should be array of pics
         public string UrlPicture { get; set; }
-
+   
         public decimal? Price { get; set; }
     }
 

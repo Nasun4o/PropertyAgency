@@ -139,7 +139,9 @@
 
         //
         // GET: /Account/Register
+        
         [Authorize(Roles = "Admin")]
+        [Route("Admin/Account/Register")]
         public ActionResult Register()
         {
             ViewBag.Name = new SelectList(context.
@@ -150,6 +152,7 @@
         //
         // POST: /Account/Register
         [HttpPost]
+        [Route("Admin/Account/")]
         [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)

@@ -23,13 +23,13 @@ namespace PropertyAgency.Data.Migrations
                         User_Id = c.String(maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.PropertyOwners", t => t.Owner_Id)
+                .ForeignKey("dbo.Landlords", t => t.Owner_Id)
                 .ForeignKey("dbo.AspNetUsers", t => t.User_Id)
                 .Index(t => t.Owner_Id)
                 .Index(t => t.User_Id);
             
             CreateTable(
-                "dbo.PropertyOwners",
+                "dbo.Landlords",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
@@ -130,12 +130,12 @@ namespace PropertyAgency.Data.Migrations
         {
             DropForeignKey("dbo.Tenants", "User_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
-            DropForeignKey("dbo.PropertyOwners", "User_Id", "dbo.AspNetUsers");
+            DropForeignKey("dbo.Landlords", "User_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.Properties", "User_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
-            DropForeignKey("dbo.Properties", "Owner_Id", "dbo.PropertyOwners");
+            DropForeignKey("dbo.Properties", "Owner_Id", "dbo.Landlords");
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
@@ -143,7 +143,7 @@ namespace PropertyAgency.Data.Migrations
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
-            DropIndex("dbo.PropertyOwners", new[] { "User_Id" });
+            DropIndex("dbo.Landlords", new[] { "User_Id" });
             DropIndex("dbo.Properties", new[] { "User_Id" });
             DropIndex("dbo.Properties", new[] { "Owner_Id" });
             DropTable("dbo.AspNetUserLogins");
@@ -152,7 +152,7 @@ namespace PropertyAgency.Data.Migrations
             DropTable("dbo.Tenants");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
-            DropTable("dbo.PropertyOwners");
+            DropTable("dbo.Landlords");
             DropTable("dbo.Properties");
         }
     }

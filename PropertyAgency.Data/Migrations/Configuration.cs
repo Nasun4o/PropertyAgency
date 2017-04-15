@@ -7,7 +7,7 @@ namespace PropertyAgency.Data.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            
+            AutomaticMigrationDataLossAllowed = true;
             ContextKey = "PropertyAgency.Data.PropertyAgencyContext";
         }
 

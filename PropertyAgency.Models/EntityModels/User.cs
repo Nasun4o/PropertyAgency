@@ -8,14 +8,6 @@
 
     public class User : IdentityUser
     {
-        public User()
-        {
-            this.Tenants = new HashSet<Tenant>();
-            this.Properties = new HashSet<Property>();
-            this.PropertyOwners = new HashSet<Landlord>();
-
-        }
-
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -23,11 +15,5 @@
             // Add custom user claims here
             return userIdentity;
         }
-
-
-        public virtual ICollection<Tenant> Tenants { get; set; }
-        public virtual ICollection<Property> Properties { get; set; }
-        public virtual ICollection<Landlord> PropertyOwners { get; set; }
-
     }
 }

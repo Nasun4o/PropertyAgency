@@ -1,0 +1,86 @@
+﻿@model PropertyAgency.Models.ViewModels.Property.PropertyFormViewModel
+
+@{
+    ViewBag.Title = "Add Property";
+}
+
+<h2>Add New Property</h2>
+@using (Html.BeginForm("Add", "Property", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+
+    @*Address*@
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+
+    <div class="control-group">
+        @Html.LabelFor(m => m.FullAddress, new {@class = "col-sm-2 control-label" })
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="FullAddress" placeholder="FullAddress" name="FullAddress">
+        </div>
+    </div>
+    @*Size*@
+    <div class="control-group">
+        @Html.LabelFor(m => m.ApartmentSize, new { @class = "col-sm-2 control-label" })
+        <div class="col-sm-10">
+            <input type="number" class="form-control" id="ApartmentSize" placeholder="ApartmentSize" name="ApartmentSize">
+        </div>
+    </div>
+    @*Number of rooms*@
+    <div class="control-group">
+        @Html.LabelFor(m => m.NumberOf0Rooms, new { @class = "col-sm-2 control-label" })
+        <div class="col-sm-10">
+            <input type="number" class="form-control" id="NumberOf0Rooms" placeholder="NumberOfRooms" name="NumberOfRooms">
+        </div>
+    </div>
+    @*IS Active*@
+    <div class="control-group">
+        @Html.LabelFor(m => m.IsActive, new { @class = "col-sm-2 control-label" })
+        <div class="col-sm-10">
+            <input type="radio" name="IsActive" value="true" checked>Yes<br>
+            <input type="radio" name="IsActive" value="false">No
+        </div>
+    </div>
+    @*Type of property for rent or sale*@
+    <div class="control-group">
+        @Html.LabelFor(m => m.Type, new { @class = "col-sm-2 control-label" })
+        <div class="col-sm-10">
+            <input type="radio" name="Type" value="Rent" checked>For Rent<br>
+            <input type="radio" name="Type" value="Sale">For Sale
+        </div>
+    </div>
+
+    @*Price*@
+    <div class="control-group">
+        @Html.LabelFor(m => m.Price, new { @class = "col-sm-2 control-label" })
+        <div class="col-sm-10">
+            <input type="number" class="form-control" id="Price" placeholder="Price" name="Price">
+            @*Picture*@
+            <div class="control-group">
+                <label class="col-sm-2 control-label" for="UrlPicture">UrlPicture</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="UrlPicture" placeholder="UrlPicture" name="UrlPicture">
+                </div>
+            </div>
+        </div>
+    </div>
+    @*LandlordList*@
+    <div class="control-group">
+        @Html.LabelFor(m => m.LandlordsList, new { @class = "col-sm-2 control-label" })
+        <div class="col-sm-10">
+            <select class="form-control" id="LandlordsList" name="LandlordId">
+                @foreach (var landlord in @Model.LandlordsList)
+                {
+                    <option value="@landlord.Id">@landlord.FullName</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <!-- Button -->
+        <div class="controls">
+            <button class="btn btn-success" type="submit">Add Property</button>
+        </div>
+    </div>
+@*</form>*@
+}
