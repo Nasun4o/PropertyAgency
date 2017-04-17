@@ -127,6 +127,8 @@
     <Compile Include="ViewModels\Manage\SetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\Property\PropertyFormViewModel.cs" />
+    <Compile Include="ViewModels\Property\ShowPropertiesViewModel.cs" />
+    <Compile Include="ViewModels\Property\PropertyInfoViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Attributes\" />

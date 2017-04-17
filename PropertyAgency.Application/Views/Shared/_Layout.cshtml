@@ -22,9 +22,17 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Out Company", "About", "Home")</li>
+                    <li>@Html.ActionLink("Our Company", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Controll Panel", "Index", "Property", new {area = "Admin"}, null)</li>
+                    <li>@Html.ActionLink("Control Panel", "Index", "Property", new { area = "Admin" }, null)</li>
+                    @*TODO: Check for collapse panel or Override dropdown-menu*@
+                    <li class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">DropDown<span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Rent</a></li>
+                            <li><a href="#">Sale</a></li>
+                        </ul>
+                    </li>
 
                 </ul>
                 @Html.Partial("_LoginPartial")

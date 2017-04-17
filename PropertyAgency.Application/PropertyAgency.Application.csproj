@@ -172,13 +172,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\ControlPanelController.cs" />
     <Compile Include="Areas\Admin\Controllers\LandlordController.cs" />
     <Compile Include="Areas\Admin\Controllers\PropertyController.cs" />
     <Compile Include="Areas\Admin\Controllers\TenantController.cs" />
-    <Compile Include="Areas\Property\PropertyAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PropertyInfoController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
@@ -211,13 +212,13 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\Views\web.config" />
-    <Content Include="Areas\Property\Views\web.config" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\Landlord\Add.cshtml" />
     <Content Include="Areas\Admin\Views\Tenant\Add.cshtml" />
     <Content Include="Areas\Admin\Views\Property\Add.cshtml" />
     <Content Include="Areas\Admin\Views\Property\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ControlPanel\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -264,11 +265,10 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\PropertyInfo\Show.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Property\Controllers\" />
-    <Folder Include="Areas\Property\Views\Shared\" />
     <Folder Include="Views\Role\" />
     <Folder Include="Views\Users\" />
   </ItemGroup>

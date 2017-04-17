@@ -35,5 +35,19 @@ namespace PropertyAgency.Services
             this.Context.Properties.Add(property);
             this.Context.SaveChanges();
         }
+
+        public ShowPropertiesViewModel GetPropertyInfo()
+        {
+            ShowPropertiesViewModel model = new ShowPropertiesViewModel();
+            List<PropertyInfoViewModel> propertyInfo = new List<PropertyInfoViewModel>();
+
+            foreach (var item in this.Context.Properties)
+            {
+                PropertyInfoViewModel property = Mapper.Map<Property, PropertyInfoViewModel>(item);
+                propertyInfo.Add(property);
+            }
+            model.PropertyInfoViewModels = propertyInfo;
+            return model;
+        }
     }
 }

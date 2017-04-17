@@ -16,7 +16,7 @@ namespace PropertyAgency.Models.ViewModels.Property
 
         public double? ApartmentSize { get; set; }
 
-        public int NumberOf0Rooms { get; set; }
+        public int NumberOfRooms { get; set; }
 
         public bool IsActive { get; set; }
         //For Rent or for Sale

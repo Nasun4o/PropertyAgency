@@ -1,6 +1,7 @@
 ﻿
 body {
     overflow-y:hidden;
+    font-size: 15px;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -50,7 +51,7 @@ footer {
 }
 
 .navbar-brand {
-    font-size: 42px;
+    font-size: 2.5em;
     font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
     float: none;
     text-align: left;
@@ -70,7 +71,7 @@ footer {
     width:100%;
     text-align:left;
     text-transform:uppercase;
-}
+    }
 .navbar-collapse .navbar-nav.navbar-right:last-child {
     margin:0;
 }
@@ -79,7 +80,7 @@ footer {
 }
 .navbar-inverse .navbar-nav > li > a {
     color:#ffffff;
-    font-size:15px;
+    font-size: 1em;
     font-family:Arial;
 }
 .navbar-inverse .navbar-nav > li > a:hover {
@@ -91,6 +92,25 @@ footer {
     max-height:900px;
 }
 /*HOMEPAGE END*/
+/*Bootstrap Override Start*/
+.dropdown-menu {
+    position: relative;
+    min-width: inherit;
+    width: 100%;
+    border-radius: inherit;
+    background: inherit;
+}
+.dropdown-menu li a {
+    color: #fff;
+}
+.dropdown-menu li a:hover {
+    background: #646260;
+}
+.btn {
+    width: 100%;
+    border-radius: inherit
+}
+/*Bootstrap Override End*/
 
 /*LOG IN START*/
 .login-form {

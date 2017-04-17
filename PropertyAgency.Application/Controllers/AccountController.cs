@@ -141,7 +141,7 @@
         // GET: /Account/Register
         
         [Authorize(Roles = "Admin")]
-        [Route("Admin/Account/Register")]
+        //[Route("Admin/Account/Register")]
         public ActionResult Register()
         {
             ViewBag.Name = new SelectList(context.
@@ -152,7 +152,7 @@
         //
         // POST: /Account/Register
         [HttpPost]
-        [Route("Admin/Account/")]
+        //[Route("Admin/Account/Register")]
         [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
@@ -164,24 +164,8 @@
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-//                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    //using (var context = new PropertyAgencyContext())
-                    //{
-                    //    var tenants = new Tenant()
-                    //                      {
-                    //                          FullName = "Nako i Dani",
-                    //                          Description = "Neshto eftino",
-                    //                          PhoneNumber = "00000000"
-                    //                      };
-
-                    //    var userProfile = context.Users.FirstOrDefault();
-                    //    if (userProfile != null)
-                    //    {
-                    //        userProfile.Tenants.Add(tenants);
-                    //    }
-                    //    context.SaveChanges();
-
-                    //}
+                     // await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+                 
 
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
