@@ -9,5 +9,6 @@ namespace PropertyAgency.Models.ViewModels.Property
     public class ShowPropertiesViewModel
     {
         public IEnumerable<PropertyInfoViewModel> PropertyInfoViewModels { get; set; } 
+
     }
 }

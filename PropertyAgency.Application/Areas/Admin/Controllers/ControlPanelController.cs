@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace PropertyAgency.Application.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ControlPanelController : Controller
     {
         // GET: Admin/ControlPanel

@@ -4,6 +4,7 @@
     using PropertyAgency.Models.BindingModels;
     using PropertyAgency.Services;
 
+    [Authorize(Roles = "Admin, Moderator")]
     public class TenantController : Controller
     {
         // GET: Admin/Tenant

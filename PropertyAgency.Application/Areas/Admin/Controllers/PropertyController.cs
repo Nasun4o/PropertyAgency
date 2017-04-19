@@ -4,7 +4,7 @@
     using PropertyAgency.Models.BindingModels;
     using PropertyAgency.Models.ViewModels.Property;
     using PropertyAgency.Services;
-
+    [Authorize(Roles = "Admin, Moderator")]
     public class PropertyController : Controller
     {
         private PropertyService propertyService;
@@ -26,9 +26,7 @@
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken()]
-        //TODO: Type is problem
         public ActionResult Add([Bind(Include = "FullAddress, ApartmentSize, NumberOfRooms, IsActive, Type, UrlPicture, Price, LandlordId")] PropertyBindingModel propertyBindingModel)
         {
             if (ModelState.IsValid)

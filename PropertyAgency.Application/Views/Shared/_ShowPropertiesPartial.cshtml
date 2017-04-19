@@ -1,0 +1,37 @@
+﻿@model PropertyAgency.Models.ViewModels.Property.ShowPropertiesViewModel
+
+@{
+    ViewBag.Title = "_ShowPropertiesPartial";
+}
+
+
+<div class="table table-bordered">
+    <table style="width: 100%;">
+        <thead>
+            <tr>
+                <th>Picture</th>
+                <th>Full Address</th>
+                <th>Apartment Size</th>
+                <th>Number of Rooms</th>
+                <th>IsActive</th>
+                <th>Price</th>
+                <th>Landlord Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var property in Model.PropertyInfoViewModels)
+            {
+                <tr>
+                    <td><img class="img-rounded" src="@property.UrlPicture" width="150" height="150" /></td>
+                    <td>&nbsp;@property.FullAddress</td>
+                    <td>&nbsp;@property.ApartmentSize</td>
+                    <td>&nbsp;@property.NumberOfRooms</td>
+                    <td>&nbsp;@property.IsActive</td>
+                    <td>&nbsp;@property.Price</td>
+                    <td>&nbsp;@property.LandlordName</td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

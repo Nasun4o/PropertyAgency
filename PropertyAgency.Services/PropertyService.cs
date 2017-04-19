@@ -9,11 +9,15 @@ namespace PropertyAgency.Services
     using AutoMapper;
     using PropertyAgency.Models.BindingModels;
     using PropertyAgency.Models.EntityModels;
+    using PropertyAgency.Models.Enums;
     using PropertyAgency.Models.ViewModels.Landlord;
     using PropertyAgency.Models.ViewModels.Property;
 
     public class PropertyService : Service
     {
+
+        private ShowPropertiesViewModel model = new ShowPropertiesViewModel();
+        private List<PropertyInfoViewModel> propertyInfo = new List<PropertyInfoViewModel>();
         public PropertyFormViewModel GeneratePropertyViewModel()
         {
             PropertyFormViewModel model = new PropertyFormViewModel();
@@ -36,18 +40,35 @@ namespace PropertyAgency.Services
             this.Context.SaveChanges();
         }
 
-        public ShowPropertiesViewModel GetPropertyInfo()
+        public ShowPropertiesViewModel GetProperiesForRent()
         {
-            ShowPropertiesViewModel model = new ShowPropertiesViewModel();
-            List<PropertyInfoViewModel> propertyInfo = new List<PropertyInfoViewModel>();
+            //ShowPropertiesViewModel model = new ShowPropertiesViewModel();
+            //List<PropertyInfoViewModel> propertyInfo = new List<PropertyInfoViewModel>();
+            var rentProperties = this.Context.Properties.Where(p => p.Type == PropertyType.Rent).ToArray();
 
-            foreach (var item in this.Context.Properties)
+            foreach (var item in rentProperties)
             {
                 PropertyInfoViewModel property = Mapper.Map<Property, PropertyInfoViewModel>(item);
-                propertyInfo.Add(property);
+                this.propertyInfo.Add(property);
             }
             model.PropertyInfoViewModels = propertyInfo;
-            return model;
+            return this.model;
+        }
+
+        public ShowPropertiesViewModel GetProperiesForSale()
+        {
+            //ShowPropertiesViewModel model = new ShowPropertiesViewModel();
+            //List<PropertyInfoViewModel> propertyInfo = new List<PropertyInfoViewModel>();
+            var saleProperties = this.Context.Properties.Where(p => p.Type == PropertyType.Sale).ToArray();
+
+
+            foreach (var item in saleProperties)
+            {
+                PropertyInfoViewModel property = Mapper.Map<Property, PropertyInfoViewModel>(item);
+                this.propertyInfo.Add(property);
+            }
+            this.model.PropertyInfoViewModels = propertyInfo;
+            return this.model;
         }
     }
 }

@@ -2,7 +2,7 @@
 {
     public enum PropertyType
     {
-        Rent,
-        Sale
+        Rent = 0,
+        Sale = 1
     }
 }

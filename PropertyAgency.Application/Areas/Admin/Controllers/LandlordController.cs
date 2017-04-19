@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace PropertyAgency.Application.Areas.Admin.Controllers
+﻿namespace PropertyAgency.Application.Areas.Admin.Controllers
 {
+    using System.Web.Mvc;
     using PropertyAgency.Models.BindingModels;
     using PropertyAgency.Services;
 
+    [Authorize(Roles = "Admin, Moderator")]
     public class LandlordController : Controller
     {
         private LandlordService landlordService;
@@ -29,7 +25,6 @@ namespace PropertyAgency.Application.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken()]
         public ActionResult Add([Bind(Include = "FullName, PhoneNumber, IsAcceptingAnimals")] LandlordsBindingModel landlordsBindingModel)
         {

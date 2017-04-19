@@ -265,7 +265,9 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\PropertyInfo\Show.cshtml" />
+    <Content Include="Views\PropertyInfo\Rent.cshtml" />
+    <Content Include="Views\Shared\_ShowPropertiesPartial.cshtml" />
+    <Content Include="Views\PropertyInfo\Sale.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

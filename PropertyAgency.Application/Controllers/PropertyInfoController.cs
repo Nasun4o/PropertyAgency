@@ -8,6 +8,7 @@ namespace PropertyAgency.Application.Controllers
 {
     using PropertyAgency.Models.ViewModels.Property;
     using PropertyAgency.Services;
+    [Authorize]
     [RoutePrefix("Properties")]
     public class PropertyInfoController : Controller
     {
@@ -18,16 +19,22 @@ namespace PropertyAgency.Application.Controllers
             this.service = new PropertyService();
         }
         // GET: PropertyInfo
-        [Route("Properties/Properties")]
-        public ActionResult Properties()
-        {
-            return View();
-        }
+        //[Route("Properties/Properties")]
+        //public ActionResult Properties()
+        //{
+        //    return View();
+        //}
 
-        [Route("Properties/Show")]
-        public ActionResult Show()
+        [Route("Show/Rent/")]
+        public ActionResult Rent()
         {
-            ShowPropertiesViewModel model = this.service.GetPropertyInfo();
+            ShowPropertiesViewModel model = this.service.GetProperiesForRent();
+            return this.View(model);
+        }
+        [Route("Show/Sale/")]
+        public ActionResult Sale()
+        {
+            ShowPropertiesViewModel model = this.service.GetProperiesForSale();
             return this.View(model);
         }
     }
