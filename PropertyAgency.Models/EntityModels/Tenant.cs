@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PropertyAgency.Models.EntityModels
+﻿namespace PropertyAgency.Models.EntityModels
 {
     public class Tenant
     {

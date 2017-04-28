@@ -115,6 +115,7 @@
     <Compile Include="ViewModels\Account\ResetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Account\SendCodeViewModel.cs" />
     <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
+    <Compile Include="ViewModels\Landlord\LandlordsViewModel.cs" />
     <Compile Include="ViewModels\Landlord\LandlordViewModel.cs" />
     <Compile Include="ViewModels\Manage\AddPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\Manage\ChangePasswordViewModel.cs" />
@@ -129,6 +130,8 @@
     <Compile Include="ViewModels\Property\PropertyFormViewModel.cs" />
     <Compile Include="ViewModels\Property\ShowPropertiesViewModel.cs" />
     <Compile Include="ViewModels\Property\PropertyInfoViewModel.cs" />
+    <Compile Include="ViewModels\Tenant\TenantsViewModel.cs" />
+    <Compile Include="ViewModels\Tenant\TenantViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Attributes\" />

@@ -17,7 +17,6 @@ namespace PropertyAgency.Services
     {
 
         private readonly ShowPropertiesViewModel model = new ShowPropertiesViewModel();
-
         private readonly List<PropertyInfoViewModel> propertyInfo = new List<PropertyInfoViewModel>();
 
      

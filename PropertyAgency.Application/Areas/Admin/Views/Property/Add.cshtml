@@ -16,39 +16,39 @@
     @Html.ValidationSummary("", new { @class = "text-danger" })
 
     <div class="control-group">
-        @Html.LabelFor(m => m.FullAddress, new {@class = "col-sm-2 control-label" })
+        @Html.LabelFor(m => m.FullAddress, "Full Address", new {@class = "col-sm-2 control-label" })
         <div class="col-sm-10">
-            <input type="text" class="form-control" id="FullAddress" placeholder="FullAddress" name="FullAddress">
+            @Html.TextBoxFor(m => m.FullAddress, new {@class = "form-control", placeholder = "Full Address" })
         </div>
     </div>
     @*Size*@
     <div class="control-group">
-        @Html.LabelFor(m => m.ApartmentSize, new { @class = "col-sm-2 control-label" })
+        @Html.LabelFor(m => m.ApartmentSize, "Apartment Size", new { @class = "col-sm-2 control-label" })
         <div class="col-sm-10">
-            <input type="number" class="form-control" id="ApartmentSize" placeholder="ApartmentSize" name="ApartmentSize">
+            @Html.EditorFor(m => m.ApartmentSize, new { htmlAttributes = new { @class = "form-control", placeholder = "Apartment Size" } })
         </div>
     </div>
     @*Number of rooms*@
     <div class="control-group">
-        @Html.LabelFor(m => m.NumberOfRooms, new { @class = "col-sm-2 control-label" })
+        @Html.LabelFor(m => m.NumberOfRooms, "Number of Rooms", new { @class = "col-sm-2 control-label" })
         <div class="col-sm-10">
-            <input type="number" class="form-control" id="NumberOfRooms" placeholder="NumberOfRooms" name="NumberOfRooms">
+            @Html.EditorFor(m => m.NumberOfRooms, new { htmlAttributes = new { @class = "form-control", placeholder = "Number of Rooms" } })
         </div>
     </div>
     @*IS Active*@
     <div class="control-group">
-        @Html.LabelFor(m => m.IsActive, new { @class = "col-sm-2 control-label" })
+        @Html.LabelFor(m => m.IsActive,"Is Property Avaible", new { @class = "col-sm-2 control-label" })
         <div class="col-sm-10">
-            <input type="radio" name="IsActive" value="true" checked>Yes<br>
-            <input type="radio" name="IsActive" value="false">No
+         <span>Yes</span>@Html.RadioButton("IsActive", "true", true)
+         <span>No</span>@Html.RadioButton("IsActive", "false")
         </div>
     </div>
     @*Type of property for rent or sale*@
     <div class="control-group">
-        @Html.LabelFor(m => m.Type, new { @class = "col-sm-2 control-label" })
+        @Html.LabelFor(m => m.Type,"Property Type", new { @class = "col-sm-2 control-label" })
         <div class="col-sm-10">
-            <input type="radio" name="Type" value="Rent" checked>For Rent<br>
-            <input type="radio" name="Type" value="Sale">For Sale
+          <span>For Rent</span>@Html.RadioButton("Type", "Rent", true)
+          <span>For Sale</span>@Html.RadioButton("Type", "Sale")
         </div>
     </div>
 
@@ -56,26 +56,30 @@
     <div class="control-group">
         @Html.LabelFor(m => m.Price, new { @class = "col-sm-2 control-label" })
         <div class="col-sm-10">
-            <input type="number" class="form-control" id="Price" placeholder="Price" name="Price">
+            @Html.EditorFor(m => m.Price, new { htmlAttributes = new { @class = "form-control", placeholder = "Price"} })
             @*Picture*@
             <div class="control-group">
-                <label class="col-sm-2 control-label" for="UrlPicture">UrlPicture</label>
+                @Html.LabelFor(m => m.UrlPicture, "Image address", new { @class = "col-sm-2 control-label" })
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="UrlPicture" placeholder="UrlPicture" name="UrlPicture">
+                    @Html.TextBoxFor(m => m.UrlPicture, new { @class = "form-control", placeholder = "Image address" })
                 </div>
             </div>
         </div>
     </div>
     @*LandlordList*@
     <div class="control-group">
-        @Html.LabelFor(m => m.LandlordsList, new { @class = "col-sm-2 control-label" })
+        @Html.LabelFor(m => m.LandlordsList, "Property Landlord", new { @class = "col-sm-2 control-label" })
         <div class="col-sm-10">
-            <select class="form-control" id="LandlordsList" name="LandlordId">
+         
+            @*TODO: DROPDOWN LIST VIA HTML HELPERS*@
+               <select class="form-control" id="LandlordsList" name="LandlordId">
                 @foreach (var landlord in @Model.LandlordsList)
                 {
                     <option value="@landlord.Id">@landlord.FullName</option>
                 }
+
             </select>
+
         </div>
     </div>
 

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace PropertyAgency.Services
 {
     using AutoMapper;
+    using Models.ViewModels.Tenant;
     using PropertyAgency.Models.BindingModels;
     using PropertyAgency.Models.EntityModels;
 
@@ -17,6 +18,22 @@ namespace PropertyAgency.Services
             Tenant tenant = Mapper.Map<Tenant>(tenantsBindingModel);
             this.Context.Tenants.Add(tenant);
             this.Context.SaveChanges();
+        }
+
+        public TenantsViewModel GetAllTenants()
+        {
+            TenantsViewModel model = new TenantsViewModel();
+            List<TenantViewModel> tenantsList = new List<TenantViewModel>();
+
+            var tenants = this.Context.Tenants;
+            //TODO: AutoMapper has Configuration BUG!!!!
+            foreach (var tenant in tenants)
+            {
+                TenantViewModel tenantModel = Mapper.Map<Tenant, TenantViewModel>(tenant);
+                tenantsList.Add(tenantModel);
+            }
+            model.Tenants = tenantsList;
+            return model;
         }
     }
 }

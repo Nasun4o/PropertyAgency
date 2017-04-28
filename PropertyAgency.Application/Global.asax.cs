@@ -9,6 +9,7 @@
     using PropertyAgency.Models.EntityModels;
     using PropertyAgency.Models.ViewModels.Landlord;
     using PropertyAgency.Models.ViewModels.Property;
+    using Models.ViewModels.Tenant;
 
     public class MvcApplication : HttpApplication
     {
@@ -34,6 +35,8 @@
                             .ForMember(ld => ld.LandlordName,
                              configurationExpression => configurationExpression.MapFrom(t => t.Owner.FullName));
                         expression.CreateMap<Property, PropertyFormViewModel>();
+                        expression.CreateMap<LandlordsViewModel, Landlord>();
+                        expression.CreateMap<TenantsViewModel, Tenant>();
                     }
             );
         }

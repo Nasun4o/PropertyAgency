@@ -4,6 +4,8 @@
     using PropertyAgency.Models.BindingModels;
     using PropertyAgency.Models.ViewModels.Property;
     using PropertyAgency.Services;
+    using Models.Enums;
+
     [Authorize(Roles = "Admin, Moderator")]
     public class PropertyController : Controller
     {
@@ -33,7 +35,12 @@
             {
                 this.propertyService.AddProperty(propertyBindingModel);
             }
-            return this.Redirect("Success");
+            if (propertyBindingModel.Type == PropertyType.Rent)
+            {
+                return this.RedirectToAction($"Show/Rent", "Properties", new { area = "" });
+            }
+   
+            return this.RedirectToAction($"Show/Sale", "Properties", new { area = "" });
         }
     }
 }

@@ -21,8 +21,8 @@
                 <li>
                     
                     @*TODO CUSTOME HELPER CLASS FOR ACTIONLINK*@
-                    @Html.ActionLink(" ", "Index", "Home", new { })
-                    <i class="fa fa-home fa-lg"></i> Home
+                    <i class="fa fa-home fa-lg"></i>
+                    @Html.ActionLink("Home", "Index", "Home")
 
                 </li>
                 <li data-toggle="collapse" data-target="#products" class="collapsed active">
@@ -42,24 +42,30 @@
                 <ul class="sub-menu collapse" id="service">
                     <li>@Html.ActionLink("Rent", "Rent", "PropertyInfo")</li>
                     <li>@Html.ActionLink("Sale", "Sale", "PropertyInfo")</li>
+                    <li>@Html.ActionLink("Landlords", "Landlords", "PropertyInfo")</li>
+
                 </ul>
 
                 <li data-toggle="collapse" data-target="#new" class="collapsed">
-                    <a href="#"><i class="fa fa-globe fa-lg"></i> About <span class="arrow"></span></a>
+                    <a href="#">
+                       <i class="fa fa-globe fa-lg"></i> About 
+                       <span class="arrow"></span>
+                    </a>
                 </li>
+
                 <ul class="sub-menu collapse" id="new">
                     
                     <li>@Html.ActionLink("Our Company", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Control Panel", "Index", "Property", new { area = "Admin" }, null)</li>
                 </ul>
 
                 <li>
-                    <a href="#">
-                        <i class="fa fa-user fa-lg"></i> Profile
-                    </a>
+                   <i class="fa fa-user fa-lg"></i> 
+                   @Html.ActionLink("Control Panel", "Index", "Property", new { area = "Admin" }, null)
+                  
                 </li>
                 <li>
+                    @*TODO: SHOW ALL EMPLOEES*@
                     <a href="#">
                         <i class="fa fa-users fa-lg"></i> Users
                     </a>
@@ -67,6 +73,7 @@
             </ul>
         </div>
     </div>
+
     <div id="footer" class="container body-content">
         @RenderBody()
   

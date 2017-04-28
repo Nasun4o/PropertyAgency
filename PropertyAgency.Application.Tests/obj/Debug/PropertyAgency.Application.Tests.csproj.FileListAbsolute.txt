@@ -1,0 +1,1 @@
+C:\Users\operator\Desktop\PropertyAgency\PropertyAgency.Application.Tests\obj\Debug\PropertyAgency.Application.Tests.csprojResolveAssemblyReference.cache

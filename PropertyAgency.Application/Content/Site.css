@@ -31,7 +31,9 @@ textarea {
     width: 10%;
     min-height: 949px;
 }
-
+.header-properties {
+    text-align: center;
+}
 footer {
     position: fixed;
     bottom: 0;
@@ -232,10 +234,20 @@ footer {
   -webkit-transition: all 1s ease;
   -moz-transition: all 1s ease;
   -o-transition: all 1s ease;
-  -ms-transition: all 1s ease;
   transition: all 1s ease;
 }
+@media (max-width: 840px) {
+    .landlord-name, .price {
+        display: none;
+    }
+}
 @media (max-width: 767px) {
+    #footer {
+        margin-left: 0!important;
+    }
+    .body-content {
+        width: 100%!important;
+    }
   .nav-side-menu {
     position: relative;
     width: 100%;
@@ -266,6 +278,22 @@ footer {
     display: block;
   }
 }
+@media (max-width: 560px) {
+    .property-isActive {
+        display: none;
+    }
+}
+
+@media (max-width: 450px) {
+    .apartment-size {
+        display: none;
+    }
+}
+@media (max-width: 450px) {
+    .number-of-rooms {
+        display: none;
+    }
+}
 body {
   margin: 0px;
   padding: 0px;
@@ -274,4 +302,9 @@ body {
 #footer {
     width: 93%;
     margin-left: 17%;
+}
+i {
+    padding-left: 10px;
+    width: 20px;
+    padding-right: 20px;
 }

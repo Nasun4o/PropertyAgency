@@ -13,7 +13,7 @@ namespace PropertyAgency.Models.BindingModels
         public string FullAddress { get; set; }
         public double? ApartmentSize { get; set; }
 
-        public int NumberOf0Rooms { get; set; }
+        public int NumberOfRooms { get; set; }
 
         public bool IsActive { get; set; }
         //For Rent or for Sale

@@ -32,7 +32,7 @@
             {
                 this.landlordService.AddLandlord(landlordsBindingModel);
             }
-            return this.Redirect("Success");
+            return this.RedirectToAction($"Show/Landlords", "Properties", new { area = "" });
         }
  
     }
