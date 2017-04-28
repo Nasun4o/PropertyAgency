@@ -5,6 +5,8 @@
 
     public class PropertyInfoViewModel
     {
+        public int Id { get; set; }
+
         public string FullAddress { get; set; }
 
         public double? ApartmentSize { get; set; }
@@ -18,5 +20,6 @@
         public decimal? Price { get; set; }
 
         public string LandlordName { get; set; }
+
     }
 }

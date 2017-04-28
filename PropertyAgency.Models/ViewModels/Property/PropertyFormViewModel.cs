@@ -11,7 +11,7 @@ namespace PropertyAgency.Models.ViewModels.Property
 
     public class PropertyFormViewModel
     {
-
+        public int Id { get; set; }
         public string FullAddress { get; set; }
 
         public double? ApartmentSize { get; set; }

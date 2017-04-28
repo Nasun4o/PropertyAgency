@@ -9,13 +9,13 @@
     <table style="width: 100%;">
         <thead>
             <tr>
-                <th>Picture</th>
-                <th>Full Address</th>
-                <th>Apartment Size</th>
-                <th>Number of Rooms</th>
-                <th>IsActive</th>
-                <th>Price</th>
-                <th>Landlord Name</th>
+                <th>Снимки</th>
+                <th>Пълен Адрес</th>
+                <th>Големина на имота</th>
+                <th>Брой стаи</th>
+                <th>Свободен?</th>
+                <th>Цена</th>
+                <th>Име на собственика</th>
             </tr>
         </thead>
         <tbody>
@@ -24,11 +24,13 @@
                 <tr>
                     <td><img class="img-rounded" src="@property.UrlPicture" width="150" height="150" /></td>
                     <td>&nbsp;@property.FullAddress</td>
-                    <td>&nbsp;@property.ApartmentSize</td>
+                    <td>&nbsp;@property.ApartmentSize кв.м</td>
                     <td>&nbsp;@property.NumberOfRooms</td>
                     <td>&nbsp;@property.IsActive</td>
-                    <td>&nbsp;@property.Price</td>
+                    <td>&nbsp;@property.Price лв.</td>
                     <td>&nbsp;@property.LandlordName</td>
+                    @*<td>@Html.ActionLink("Edit", "Edit", "Edit", new {id = property.Id})</td>*@
+                    <td><a href="../../Edit/@property.Id">Edit</a></td>
                 </tr>
             }
 

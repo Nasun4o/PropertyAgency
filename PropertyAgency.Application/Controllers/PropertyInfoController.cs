@@ -18,12 +18,6 @@ namespace PropertyAgency.Application.Controllers
         {
             this.service = new PropertyService();
         }
-        // GET: PropertyInfo
-        //[Route("Properties/Properties")]
-        //public ActionResult Properties()
-        //{
-        //    return View();
-        //}
 
         [Route("Show/Rent/")]
         public ActionResult Rent()

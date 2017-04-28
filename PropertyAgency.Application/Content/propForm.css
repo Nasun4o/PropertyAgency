@@ -1,0 +1,51 @@
+﻿body {
+
+}
+
+h2 {
+    background: #c1c1c1;
+    margin: 0;
+    padding: 21px;
+    color: #fff;
+    font-weight: bold;
+    font-family: -webkit-body;
+    text-align: center;
+}
+form {
+    width: 40%;
+    margin: 0 auto;
+    margin-top: 10%;
+    background: #c1c1c1;
+    border-radius: 15px;
+}
+label {
+    width: 100%;
+}
+textarea {
+    resize: none;
+}
+
+/*BootsStrap Override*/
+.form-control {
+    margin: 0 auto;
+}
+.form-horizontal .control-label {
+    width: 100%;
+    text-align: center;
+}
+.col-sm-10 {
+    width: 100%;
+    text-align: center;
+}
+.control-group {
+    text-align: center;
+}
+.btn {
+width: 50%;
+    border-radius: 8px;
+    margin: 15px 0;
+    box-shadow: 1px 4px #12560a;
+}
+.btn:hover {
+        box-shadow: 1px 1px #12560a;
+}

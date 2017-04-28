@@ -1,13 +1,14 @@
 ﻿@model PropertyAgency.Models.ViewModels.Property.PropertyFormViewModel
 
 @{
-    ViewBag.Title = "Add Property";
+    ViewBag.Title = "Edit";
 }
+
+<h2>Edit</h2>
 <head>
     @Styles.Render("~/Content/propForm.css")
 </head>
-<h2>Add New Property</h2>
-@using (Html.BeginForm("Add", "Property", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@using (Html.BeginForm("Edit", "Edit", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
 
     @Html.AntiForgeryToken()
@@ -15,24 +16,29 @@
     @*Address*@
     @Html.ValidationSummary("", new { @class = "text-danger" })
 
+    <input id="id" type="hidden" name="id" value="@Model.Id" />
+
     <div class="control-group">
-        @Html.LabelFor(m => m.FullAddress, new {@class = "col-sm-2 control-label" })
+        @Html.LabelFor(m => m.FullAddress, new { @class = "col-sm-2 control-label" })
         <div class="col-sm-10">
-            <input type="text" class="form-control" id="FullAddress" placeholder="FullAddress" name="FullAddress">
+            @*<input type="text" class="form-control" id="FullAddress" placeholder="FullAddress" name="FullAddress">*@
+            @Html.TextBoxFor(m => m.FullAddress, new { @class = "form-control" })
         </div>
     </div>
     @*Size*@
     <div class="control-group">
         @Html.LabelFor(m => m.ApartmentSize, new { @class = "col-sm-2 control-label" })
         <div class="col-sm-10">
-            <input type="number" class="form-control" id="ApartmentSize" placeholder="ApartmentSize" name="ApartmentSize">
+            @*<input type="number" class="form-control" id="ApartmentSize" placeholder="ApartmentSize" name="ApartmentSize">*@
+            @Html.EditorFor(m => m.ApartmentSize, new { @class = "form-control" })
         </div>
     </div>
     @*Number of rooms*@
     <div class="control-group">
         @Html.LabelFor(m => m.NumberOfRooms, new { @class = "col-sm-2 control-label" })
         <div class="col-sm-10">
-            <input type="number" class="form-control" id="NumberOfRooms" placeholder="NumberOfRooms" name="NumberOfRooms">
+            @Html.EditorFor(m => m.NumberOfRooms, new { @class = "form-control" })
+            @*<input type="number" class="form-control" id="NumberOfRooms" placeholder="NumberOfRooms" name="NumberOfRooms">*@
         </div>
     </div>
     @*IS Active*@
@@ -56,28 +62,31 @@
     <div class="control-group">
         @Html.LabelFor(m => m.Price, new { @class = "col-sm-2 control-label" })
         <div class="col-sm-10">
-            <input type="number" class="form-control" id="Price" placeholder="Price" name="Price">
+            @*<input type="number" class="form-control" id="Price" placeholder="Price" name="Price">*@
+            @Html.EditorFor(m => m.Price, new { @class = "form-control" })
             @*Picture*@
             <div class="control-group">
-                <label class="col-sm-2 control-label" for="UrlPicture">UrlPicture</label>
+                @Html.LabelFor(m => m.UrlPicture, new { @class = "col-md-2 control-label" })
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="UrlPicture" placeholder="UrlPicture" name="UrlPicture">
+                  
+                    @Html.TextBoxFor(m => m.UrlPicture, new { @class = "form-control" })
+                    @*<input type="text" class="form-control" id="UrlPicture" placeholder="UrlPicture" name="UrlPicture">*@
                 </div>
             </div>
         </div>
     </div>
     @*LandlordList*@
-    <div class="control-group">
-        @Html.LabelFor(m => m.LandlordsList, new { @class = "col-sm-2 control-label" })
-        <div class="col-sm-10">
-            <select class="form-control" id="LandlordsList" name="LandlordId">
-                @foreach (var landlord in @Model.LandlordsList)
-                {
-                    <option value="@landlord.Id">@landlord.FullName</option>
-                }
-            </select>
-        </div>
-    </div>
+    @*<div class="control-group">
+            @Html.LabelFor(m => m.LandlordsList, new { @class = "col-sm-2 control-label" })
+            <div class="col-sm-10">
+                <select class="form-control" id="LandlordsList" name="LandlordId">
+                    @foreach (var landlord in @Model.LandlordsList)
+                    {
+                        <option value="@landlord.Id">@landlord.FullName</option>
+                    }
+                </select>
+            </div>
+        </div>*@
 
     <div class="control-group">
         <!-- Button -->
@@ -85,5 +94,5 @@
             <button class="btn btn-success" type="submit">Add Property</button>
         </div>
     </div>
-@*</form>*@
+    @*</form>*@
 }

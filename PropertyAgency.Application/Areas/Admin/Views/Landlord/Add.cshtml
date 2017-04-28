@@ -3,8 +3,10 @@
 @{
     ViewBag.Title = "Add Landlords";
 }
+<head>
+@Styles.Render("~/Content/propForm.css")
+</head>
 
-@*<form class="form-horizontal" action='' method="POST">*@
 <h2>Add New Landlord</h2>
 @using (Html.BeginForm("Add", "Landlord", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {

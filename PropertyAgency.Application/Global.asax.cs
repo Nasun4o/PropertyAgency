@@ -33,6 +33,7 @@
                         expression.CreateMap<Property, PropertyInfoViewModel>()
                             .ForMember(ld => ld.LandlordName,
                              configurationExpression => configurationExpression.MapFrom(t => t.Owner.FullName));
+                        expression.CreateMap<Property, PropertyFormViewModel>();
                     }
             );
         }

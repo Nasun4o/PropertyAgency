@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EditService.cs" />
     <Compile Include="LandlordService.cs" />
     <Compile Include="PropertyService.cs" />
     <Compile Include="Service.cs" />

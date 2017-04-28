@@ -177,6 +177,7 @@
     <Compile Include="Areas\Admin\Controllers\PropertyController.cs" />
     <Compile Include="Areas\Admin\Controllers\TenantController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\EditController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PropertyInfoController.cs" />
@@ -205,6 +206,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\imgs\prop-img1.jpg" />
     <Content Include="Content\imgs\sf.jpg" />
+    <Content Include="Content\propForm.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -268,6 +270,7 @@
     <Content Include="Views\PropertyInfo\Rent.cshtml" />
     <Content Include="Views\Shared\_ShowPropertiesPartial.cshtml" />
     <Content Include="Views\PropertyInfo\Sale.cshtml" />
+    <Content Include="Views\Edit\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
