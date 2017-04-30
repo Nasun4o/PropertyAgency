@@ -32,7 +32,7 @@
         [ValidateAntiForgeryToken()]
         public ActionResult Add([Bind(Include = "FullAddress, ApartmentSize, NumberOfRooms, IsActive, Type, UrlPicture, Price, LandlordId")] PropertyFormViewModel propertyFormViewModelgModel)
         {
-            
+
             if (ModelState.IsValid)
             {
                 this.propertyService.AddProperty(propertyFormViewModelgModel);
@@ -45,6 +45,16 @@
             }
             PropertyFormViewModel model = this.propertyService.GeneratePropertyViewModel();
             return this.View(model);
+        }
+
+        [HttpGet]
+        [Route("DeleteProperty/{id:regex([0-9]+)}")]
+        public ActionResult DeleteProperty(int? id)
+        {
+            //TODO: Returning PATH!!!
+            this.propertyService.Delete(id);
+
+            return this.RedirectToAction($"Show/Rent", "Properties", new { area = "" });
         }
     }
 }

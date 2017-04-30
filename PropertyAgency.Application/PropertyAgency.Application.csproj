@@ -173,6 +173,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\ControlPanelController.cs" />
+    <Compile Include="Areas\Admin\Controllers\EmployeeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LandlordController.cs" />
     <Compile Include="Areas\Admin\Controllers\PropertyController.cs" />
     <Compile Include="Areas\Admin\Controllers\TenantController.cs" />
@@ -209,6 +210,11 @@
     <Content Include="Areas\Admin\Views\Property\Add.cshtml" />
     <Content Include="Areas\Admin\Views\Property\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ControlPanel\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Employee\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Employee\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Employee\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Employee\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Employee\Index.cshtml" />
     <None Include="Properties\PublishProfiles\PublishToFolder.pubxml" />
     <None Include="Properties\PublishProfiles\Somee.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -260,10 +266,11 @@
     <Content Include="Views\PropertyInfo\Rent.cshtml" />
     <Content Include="Views\Shared\_ShowPropertiesPartial.cshtml" />
     <Content Include="Views\PropertyInfo\Sale.cshtml" />
-    <Content Include="Views\Edit\Edit.cshtml" />
+    <Content Include="Views\Edit\EditProperty.cshtml" />
     <Content Include="Views\PropertyInfo\Landlords.cshtml" />
     <Content Include="Views\PropertyInfo\Tenants.cshtml" />
     <Content Include="Views\Edit\EditLandlord.cshtml" />
+    <Content Include="Views\Edit\EditTenant.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

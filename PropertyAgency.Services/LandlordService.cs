@@ -30,5 +30,11 @@
             model.Landlords = landlordsList;
             return model;
         }
+
+        public void Delete(int? id)
+        {
+            this.Context.Landlords.Remove(this.Context.Landlords.Find(id));
+            this.Context.SaveChanges();
+        }
     }
 }

@@ -28,7 +28,11 @@
                     <td>@tenant.FullName</td>
                     <td class="full-address">&nbsp;@tenant.PhoneNumber</td>
                     <td class="apartment-size">&nbsp;@tenant.Description</td>
-                    <td><a href="../../Edit/@tenant.Id">Edit</a></td>
+                    <td>
+                        <a href="../../EditTenant/@tenant.Id">Edit</a> |
+                        <a href="../../DeleteTenant/@tenant.Id">Delete</a>
+                    </td>
+
                 </tr>
             }
 

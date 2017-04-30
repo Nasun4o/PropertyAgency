@@ -1,8 +1,10 @@
 ﻿namespace PropertyAgency.Application.Areas.Admin.Controllers
 {
     using System;
+    using System.Linq;
     using System.Web.Mvc;
     using PropertyAgency.Models.BindingModels;
+    using PropertyAgency.Models.EntityModels;
     using PropertyAgency.Services;
 
     [Authorize(Roles = "Admin, Moderator")]
@@ -36,6 +38,20 @@
             }
             return this.View(landlordsBindingModel);
         }
- 
+    
+
+        /// <summary>
+        /// Delete Landlord by Given Id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("DeleteLandlord/{id:regex([0-9]+)}")]
+        public ActionResult DeleteLandlord(int? id)
+        {
+            this.landlordService.Delete(id);
+            
+            return RedirectToAction($"Show/Landlords", "Properties", new { area = "" });
+        }
     }
 }

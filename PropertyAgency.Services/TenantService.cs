@@ -35,5 +35,15 @@ namespace PropertyAgency.Services
             model.Tenants = tenantsList;
             return model;
         }
+
+        public void Delete(int? id)
+        {
+            var tenant = this.Context.Tenants.Find(id);
+            if (tenant != null)
+            {
+                this.Context.Tenants.Remove(tenant);
+            }
+            this.Context.SaveChanges();
+        }
     }
 }

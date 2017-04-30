@@ -30,7 +30,10 @@
                     <td class="price">&nbsp;@property.Price лв.</td>
                     <td class="landlord-name">&nbsp;@property.LandlordName</td>
                     @*<td>@Html.ActionLink("Edit", "Edit", "Edit", new {id = property.Id})</td>*@
-                    <td><a href="../../Edit/@property.Id">Edit</a></td>
+                    <td>
+                        <a href="../../EditProperty/@property.Id">Edit</a> |
+                        <a href="../../DeleteProperty/@property.Id">Delete</a>
+                    </td>
                 </tr>
             }
 

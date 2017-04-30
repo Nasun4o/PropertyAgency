@@ -30,5 +30,19 @@
             }
             return this.Redirect("Success");
         }
+
+        /// <summary>
+        /// Delete Landlord by Given Id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("DeleteTenant/{id:regex([0-9]+)}")]
+        public ActionResult DeleteTenant(int? id)
+        {
+            this.tenantService.Delete(id);
+
+            return RedirectToAction($"Show/Tenants", "Properties", new { area = "" });
+        }
     }
 }

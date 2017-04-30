@@ -68,5 +68,15 @@ namespace PropertyAgency.Services
             this.model.PropertyInfoViewModels = this.propertyInfo;
             return this.model;
         }
+
+        public void Delete(int? id)
+        {
+            var property = this.Context.Properties.Find(id);
+            if (property != null)
+            {
+                this.Context.Properties.Remove(property);
+            }
+            this.Context.SaveChanges();
+        }
     }
 }

@@ -21,6 +21,7 @@ namespace PropertyAgency.Data
             return new PropertyAgencyContext();
         }
 
+        public System.Data.Entity.DbSet<PropertyAgency.Models.ViewModels.Tenant.TenantViewModel> TenantViewModels { get; set; }
     }
 }
 
