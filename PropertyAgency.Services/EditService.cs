@@ -34,14 +34,37 @@ namespace PropertyAgency.Services
         {
             var propertyToEdit = this.Context.Properties.Find(model.Id);
 
-            propertyToEdit.Type = model.Type;
-            propertyToEdit.ApartmentSize = model.ApartmentSize;
-            propertyToEdit.FullAddress = model.FullAddress;
-            propertyToEdit.IsActive = model.IsActive;
-            propertyToEdit.NumberOfRooms = model.NumberOfRooms;
-            propertyToEdit.Price = model.Price;
-            propertyToEdit.UrlPicture = model.UrlPicture;
+            if (propertyToEdit != null)
+            {
+                propertyToEdit.Type = model.Type;
+                propertyToEdit.ApartmentSize = model.ApartmentSize;
+                propertyToEdit.FullAddress = model.FullAddress;
+                propertyToEdit.IsActive = model.IsActive;
+                propertyToEdit.NumberOfRooms = model.NumberOfRooms;
+                propertyToEdit.Price = model.Price;
+                propertyToEdit.UrlPicture = model.UrlPicture;
+            }
 
+            this.Context.SaveChanges();
+        }
+
+        public LandlordViewModel EditLandlordById(int id)
+        {
+            var landlord = this.Context.Landlords.Find(id);
+
+            LandlordViewModel model = Mapper.Map<Landlord, LandlordViewModel>(landlord);
+            
+            return model;
+        }
+        public void EditLandlordById(LandlordViewModel model)
+        {
+            var landlordToEdit = this.Context.Landlords.Find(model.Id);
+
+            
+                landlordToEdit.FullName = model.FullName;
+                landlordToEdit.PhoneNumber = model.PhoneNumber;
+                landlordToEdit.IsAcceptingAnimals = model.IsAcceptingAnimals;
+            
             this.Context.SaveChanges();
         }
     }

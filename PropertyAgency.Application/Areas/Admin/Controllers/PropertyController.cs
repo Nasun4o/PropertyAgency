@@ -1,5 +1,6 @@
 ﻿namespace PropertyAgency.Application.Areas.Admin.Controllers
 {
+    using System;
     using System.Web.Mvc;
     using PropertyAgency.Models.BindingModels;
     using PropertyAgency.Models.ViewModels.Property;
@@ -29,18 +30,21 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken()]
-        public ActionResult Add([Bind(Include = "FullAddress, ApartmentSize, NumberOfRooms, IsActive, Type, UrlPicture, Price, LandlordId")] PropertyBindingModel propertyBindingModel)
+        public ActionResult Add([Bind(Include = "FullAddress, ApartmentSize, NumberOfRooms, IsActive, Type, UrlPicture, Price, LandlordId")] PropertyFormViewModel propertyFormViewModelgModel)
         {
+            
             if (ModelState.IsValid)
             {
-                this.propertyService.AddProperty(propertyBindingModel);
+                this.propertyService.AddProperty(propertyFormViewModelgModel);
+                if (propertyFormViewModelgModel.Type == PropertyType.Rent)
+                {
+                    return this.RedirectToAction($"Show/Rent", "Properties", new { area = "" });
+                }
+
+                return this.RedirectToAction($"Show/Sale", "Properties", new { area = "" });
             }
-            if (propertyBindingModel.Type == PropertyType.Rent)
-            {
-                return this.RedirectToAction($"Show/Rent", "Properties", new { area = "" });
-            }
-   
-            return this.RedirectToAction($"Show/Sale", "Properties", new { area = "" });
+            PropertyFormViewModel model = this.propertyService.GeneratePropertyViewModel();
+            return this.View(model);
         }
     }
 }

@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace PropertyAgency.Application.Controllers
+﻿namespace PropertyAgency.Application.Controllers
 {
-    using System.Data.Entity;
-    using System.Net;
-    using PropertyAgency.Models.EntityModels;
+    using System.Web.Mvc;
+    using PropertyAgency.Models.ViewModels.Landlord;
     using PropertyAgency.Models.ViewModels.Property;
     using PropertyAgency.Services;
 
@@ -47,10 +40,35 @@ namespace PropertyAgency.Application.Controllers
             if (ModelState.IsValid)
             {
                 this.service.EditProperty(property);
-                //TODO: PROPERLY REDIRECT TO PROPERTY ID
+               
                 return this.RedirectToAction($"Show/Rent", "Properties", new {area = ""});
             }
             return this.View(property);
+        }
+
+        [HttpGet]
+        [Route("EditLandlord/{id:regex([0-9]+)}")]
+        public ActionResult EditLandlord(int id)
+        {
+            LandlordViewModel landlord = this.service.EditLandlordById(id);
+
+            if (landlord == null)
+            {
+                return this.HttpNotFound();
+            }
+            return this.View(landlord);
+        }
+        [Route("EditLandlord")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditLandlord([Bind(Include = "Id, FullName, PhoneNumber, IsAcceptingAnimals")] LandlordViewModel landlord)
+        {
+            if (ModelState.IsValid)
+            {
+                this.service.EditLandlordById(landlord);
+                return this.RedirectToAction($"Show/Landlords", "Properties", new { area = "" });
+            }
+            return this.View(landlord);
         }
     }
 }

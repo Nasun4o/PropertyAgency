@@ -19,39 +19,39 @@
     <input id="id" type="hidden" name="id" value="@Model.Id" />
 
     <div class="control-group">
-        @Html.LabelFor(m => m.FullAddress, new { @class = "col-sm-2 control-label" })
+        @Html.LabelFor(m => m.FullAddress, "Full Address", new { @class = "col-sm-2 control-label" })
         <div class="col-sm-10">
-            @Html.TextBoxFor(m => m.FullAddress, new { @class = "form-control" })
+            @Html.TextBoxFor(m => m.FullAddress, new { @class = "form-control", placeholder = "Town, Street, Block etc." })
         </div>
     </div>
     @*Size*@
     <div class="control-group">
-        @Html.LabelFor(m => m.ApartmentSize, new { @class = "col-sm-2 control-label" })
+        @Html.LabelFor(m => m.ApartmentSize, "Apartment Size", new { @class = "col-sm-2 control-label" })
         <div class="col-sm-10">
-            @Html.EditorFor(m => m.ApartmentSize, new { @class = "form-control" })
+            @Html.EditorFor(m => m.ApartmentSize, new { htmlAttributes = new { @class = "form-control", placeholder = "Size of Property" } })
         </div>
     </div>
     @*Number of rooms*@
     <div class="control-group">
-        @Html.LabelFor(m => m.NumberOfRooms, new { @class = "col-sm-2 control-label" })
+        @Html.LabelFor(m => m.NumberOfRooms, "Number of Rooms", new { @class = "col-sm-2 control-label" })
         <div class="col-sm-10">
-            @Html.EditorFor(m => m.NumberOfRooms, new { @class = "form-control" })
+            @Html.EditorFor(m => m.NumberOfRooms, new { htmlAttributes = new { @class = "form-control", placeholder = "Number of Rooms" } })
         </div>
     </div>
     @*IS Active*@
     <div class="control-group">
-        @Html.LabelFor(m => m.IsActive, new { @class = "col-sm-2 control-label" })
+        @Html.LabelFor(m => m.IsActive, "Is Avaible", new { @class = "col-sm-2 control-label" })
         <div class="col-sm-10">
-            @Html.RadioButtonFor(m => m.IsActive,"true")
-            @Html.RadioButtonFor(m => m.IsActive, "false")
+          <span>Yes</span>  @Html.RadioButtonFor(m => m.IsActive,"true")
+          <span>No</span>  @Html.RadioButtonFor(m => m.IsActive, "false")
         </div>
     </div>
     @*Type of property for rent or sale*@
     <div class="control-group">
-        @Html.LabelFor(m => m.Type, new { @class = "col-sm-2 control-label" })
+        @Html.LabelFor(m => m.Type, "Type of the Property", new { @class = "col-sm-2 control-label" })
         <div class="col-sm-10">
-            @Html.RadioButtonFor(m => m.Type, "Rent")
-            @Html.RadioButtonFor(m => m.Type, "Sale")
+           <span>Rent</span> @Html.RadioButtonFor(m => m.Type, "Rent")
+           <span>Sale</span> @Html.RadioButtonFor(m => m.Type, "Sale")
         </div>
     </div>
 
@@ -59,13 +59,13 @@
     <div class="control-group">
         @Html.LabelFor(m => m.Price, new { @class = "col-sm-2 control-label" })
         <div class="col-sm-10">
-            @Html.EditorFor(m => m.Price, new { @class = "form-control" })
+            @Html.EditorFor(m => m.Price, new { htmlAttributes = new { @class = "form-control", placeholder = "Price" } })
             @*Picture*@
             <div class="control-group">
-                @Html.LabelFor(m => m.UrlPicture, new { @class = "col-md-2 control-label" })
+                @Html.LabelFor(m => m.UrlPicture, "Picture Address", new { @class = "col-md-2 control-label" })
                 <div class="col-sm-10">
                   
-                    @Html.TextBoxFor(m => m.UrlPicture, new { @class = "form-control" })
+                    @Html.TextBoxFor(m => m.UrlPicture, new { @class = "form-control", placeholder = "Url picture address" })
                 </div>
             </div>
         </div>

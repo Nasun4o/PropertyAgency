@@ -12,9 +12,9 @@
 
     @Html.AntiForgeryToken()
 
-    @*Address*@
     @Html.ValidationSummary("", new { @class = "text-danger" })
 
+    @*Address*@
     <div class="control-group">
         @Html.LabelFor(m => m.FullAddress, "Full Address", new {@class = "col-sm-2 control-label" })
         <div class="col-sm-10">

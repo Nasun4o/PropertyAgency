@@ -30,13 +30,14 @@
                         expression.CreateMap<LandlordsBindingModel, Landlord>();
                         expression.CreateMap<TenantsBindingModel, Tenant>();
                         expression.CreateMap<Landlord, LandlordViewModel>();
-                        expression.CreateMap<PropertyBindingModel, Property>();
+                        expression.CreateMap<PropertyFormViewModel, Property>();
                         expression.CreateMap<Property, PropertyInfoViewModel>()
                             .ForMember(ld => ld.LandlordName,
                              configurationExpression => configurationExpression.MapFrom(t => t.Owner.FullName));
                         expression.CreateMap<Property, PropertyFormViewModel>();
                         expression.CreateMap<LandlordsViewModel, Landlord>();
                         expression.CreateMap<TenantsViewModel, Tenant>();
+                        expression.CreateMap<Tenant, TenantViewModel>();
                     }
             );
         }

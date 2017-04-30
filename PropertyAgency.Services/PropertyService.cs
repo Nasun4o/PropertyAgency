@@ -34,7 +34,7 @@ namespace PropertyAgency.Services
             return model;
         }
 
-        public void AddProperty(PropertyBindingModel model)
+        public void AddProperty(PropertyFormViewModel model)
         {
             Property property = Mapper.Map<Property>(model);
             property.Owner = this.Context.Landlords.FirstOrDefault(m => m.Id == model.LandlordId);

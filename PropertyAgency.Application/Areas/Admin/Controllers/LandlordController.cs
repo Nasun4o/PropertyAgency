@@ -1,5 +1,6 @@
 ﻿namespace PropertyAgency.Application.Areas.Admin.Controllers
 {
+    using System;
     using System.Web.Mvc;
     using PropertyAgency.Models.BindingModels;
     using PropertyAgency.Services;
@@ -25,14 +26,15 @@
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken()]
+        [ValidateAntiForgeryToken]
         public ActionResult Add([Bind(Include = "FullName, PhoneNumber, IsAcceptingAnimals")] LandlordsBindingModel landlordsBindingModel)
         {
             if (ModelState.IsValid)
             {
                 this.landlordService.AddLandlord(landlordsBindingModel);
+                return this.RedirectToAction($"Show/Landlords", "Properties", new { area = "" });
             }
-            return this.RedirectToAction($"Show/Landlords", "Properties", new { area = "" });
+            return this.View(landlordsBindingModel);
         }
  
     }
