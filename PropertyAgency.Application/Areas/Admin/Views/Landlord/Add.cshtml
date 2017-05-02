@@ -7,12 +7,12 @@
 @Styles.Render("~/Content/propForm.css")
 </head>
 
-<h2>Add New Landlord</h2>
 @using (Html.BeginForm("Add", "Landlord", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
 
     @Html.ValidationSummary("", new { @class = "text-danger" })
+<h3 class="h3-label-form">Add New Landlord</h3>
     <div class="control-group">
         @Html.LabelFor(m => m.FullName, "Full Name", new { @class = "col-sm-2 control-label" })
         <div class="col-sm-10">

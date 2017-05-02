@@ -191,9 +191,13 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\adminPanel.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\imgs\admin.jpg" />
     <Content Include="Content\imgs\prop-img1.jpg" />
+    <Content Include="Content\imgs\r.jpg" />
+    <Content Include="Content\imgs\r1.jpg" />
     <Content Include="Content\imgs\sf.jpg" />
     <Content Include="Content\propForm.css" />
     <Content Include="favicon.ico" />

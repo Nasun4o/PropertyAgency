@@ -11,6 +11,7 @@ using PropertyAgency.Models.EntityModels;
 
 namespace PropertyAgency.Application.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class EmployeeController : Controller
     {
         private PropertyAgencyContext db = new PropertyAgencyContext();

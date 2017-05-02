@@ -6,14 +6,14 @@
 <head>
     @Styles.Render("~/Content/propForm.css")
 </head>
-<h2>Add New Property</h2>
+
 @using (Html.BeginForm("Add", "Property", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
-
     @Html.AntiForgeryToken()
 
     @Html.ValidationSummary("", new { @class = "text-danger" })
 
+    <h3 class="h3-label-form">Add New Property</h3>
     @*Address*@
     <div class="control-group">
         @Html.LabelFor(m => m.FullAddress, "Full Address", new {@class = "col-sm-2 control-label" })

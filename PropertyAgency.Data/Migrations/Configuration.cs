@@ -33,7 +33,7 @@ namespace PropertyAgency.Data.Migrations
                 //Here we create a Admin super user who will maintain the website				
 
                 var user = new User() { UserName = "admin", Email = "nasko@abv.bg" };
-                string password = "Hardpass91@!";
+                string password = "Admin91@";
                 var checkUser = UserManager.Create(user, password);
 
                 //Add default User to Role Admin

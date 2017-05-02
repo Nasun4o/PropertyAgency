@@ -4,37 +4,70 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
+    @*@Styles.Render("~/Content/css")*@
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/adminPanel.css")
     @Scripts.Render("~/bundles/modernizr")
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("LUXORY", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Add Landlord", "Add", "Landlord")</li>
-                    <li>@Html.ActionLink("Add Property", "Add", "Property")</li>
-                    <li>@Html.ActionLink("Add Tenant", "Add", "Tenant")</li>
-                    <li>@Html.ActionLink("Register Employee", "Register", "Account", new {area = ""}, null)</li>
-                    <li>@Html.ActionLink("Back", "Index", "Home", new {area = ""}, null) </li>
-                </ul>
-            </div>
+
+    <div class="nav-side-menu">
+        <div class="brand">Admin Panel</div>
+      
+        <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+
+        <div class="menu-list">
+
+            <ul id="menu-content" class="menu-content collapse out">
+                <li>
+
+                    @*TODO CUSTOME HELPER CLASS FOR ACTIONLINK*@
+                    <i class="fa fa-home fa-lg"></i>
+                    @Html.ActionLink("Home", "Index", "Home")
+
+                </li>
+               
+                    <li data-toggle="collapse" data-target="#products" class="collapsed active">
+                        <a href="#"><i class="fa fa-users fa-lg"></i> New Clients <span class="arrow"></span></a>
+                    </li>
+                    <ul class="sub-menu collapse" id="products">
+                        <li>@Html.ActionLink("Add Landlord", "Add", "Landlord")</li>
+                        <li>@Html.ActionLink("Add Tenant", "Add", "Tenant")</li>
+                    </ul>
+
+                    <li data-toggle="collapse" data-target="#service" class="collapsed">
+                        <a href="#"><i class="fa fa-home fa-lg"></i> New Property <span class="arrow"></span></a>
+                    </li>
+                    <ul class="sub-menu collapse" id="service">
+                        <li>@Html.ActionLink("Add Property", "Add", "Property")</li>
+                    </ul>
+
+                   
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li data-toggle="collapse" data-target="#employees" class="collapsed">
+                            <a href="#"><i class="fa fa-users fa-lg"></i> Employees <span class="arrow"></span></a>
+                        </li>
+                    <ul class="sub-menu collapse" id="employees">
+                        <li>@Html.ActionLink("New Employee", "Register", "Account", new { area = "" }, null)</li>
+                        <li>@Html.ActionLink("Show Employees", "Index", "Employee", new { area = "Admin" }, null)</li>
+                    </ul>
+                    }
+                    <li class="back"><i class="glyphicon glyphicon-arrow-left"></i>  @Html.ActionLink("Back", "Index", "Home", new { area = "" }, null)</li>
+               
+        
+                @*@Html.Partial("_LoginPartial")*@
+            </ul>
         </div>
     </div>
 
-    <div class="container body-content">
+    <div id="footer" class="container body-content">
         @RenderBody()
-        <hr />
+
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - All Rights Reserved</p>
         </footer>
     </div>
 
@@ -43,3 +76,45 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
+
+
+
+
+
+
+@*<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink("LUXORY", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        </div>*@
+        @*<div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Add Landlord", "Add", "Landlord")</li>
+                <li>@Html.ActionLink("Add Property", "Add", "Property")</li>
+                <li>@Html.ActionLink("Add Tenant", "Add", "Tenant")</li>
+                <li>@Html.ActionLink("Employees", "Index", "Employee", new { area = "Admin" }, null)</li>
+                <li>@Html.ActionLink("Register Employee", "Register", "Account", new { area = "" }, null)</li>
+                <li>@Html.ActionLink("Back", "Index", "Home", new { area = "" }, null) </li>
+            </ul>
+        </div>
+    </div>
+</div>*@
+
+@*<div class="container body-content">
+    @RenderBody()
+    <hr />
+    <footer>
+        <p>&copy; @DateTime.Now.Year - Atanas Tankov</p>
+    </footer>
+</div>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", required: false)
+</body>
+</html>*@
