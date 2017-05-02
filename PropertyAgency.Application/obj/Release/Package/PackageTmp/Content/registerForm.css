@@ -1,0 +1,34 @@
+.register-input {
+    margin: 0 auto;
+}
+.register-label {
+    width: 100%;
+}
+.form-group .col-md-10 {
+    width: 100%!important;
+}
+.form-horizontal .control-label {
+    text-align: center;
+}
+.login-form {
+    width: 42%;
+    margin-top: 5%;
+    left: 40%;
+    position: relative;
+}
+.register-option {
+    text-align: center;   
+}
+.register-submit {
+    text-align: center;
+}
+@media only screen and (max-width:767px) {
+    .login-form {
+        margin-top: 5%;
+        width: 80%;
+        margin: 0 auto;
+        position: inherit;
+        left: 0;
+        padding: 5px;
+    }
+}

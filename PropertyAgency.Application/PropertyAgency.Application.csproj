@@ -200,6 +200,7 @@
     <Content Include="Content\imgs\r1.jpg" />
     <Content Include="Content\imgs\sf.jpg" />
     <Content Include="Content\propForm.css" />
+    <Content Include="Content\registerForm.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

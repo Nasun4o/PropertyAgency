@@ -1,0 +1,51 @@
+﻿@model PropertyAgency.Models.ViewModels.Tenant.TenantViewModel
+
+@{
+    ViewBag.Title = "EditTenant";
+}
+
+<h2>EditTenant</h2>
+
+
+<head>
+    @Styles.Render("~/Content/propForm.css")
+</head>
+@using (Html.BeginForm("EditTenant", "Edit", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+
+    @Html.AntiForgeryToken()
+
+    @*Address*@
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+
+    <input id="id" type="hidden" name="id" value="@Model.Id" />
+
+    <div class="control-group">
+        @Html.LabelFor(m => m.FullName, new { @class = "col-sm-2 control-label" })
+        <div class="col-sm-10">
+            @Html.TextBoxFor(m => m.FullName,  new { @class = "form-control", placeholder = "First Name, Last Name" })
+        </div>
+    </div>
+    @*Size*@
+    <div class="control-group">
+        @Html.LabelFor(m => m.PhoneNumber, new { @class = "col-sm-2 control-label" })
+        <div class="col-sm-10">
+            @Html.EditorFor(m => m.PhoneNumber, new { htmlAttributes = new { @class = "form-control", placeholder = "Phone Number" }})
+        </div>
+    </div>
+
+    <div class="control-group">
+        @Html.LabelFor(m => m.Description, new { @class = "col-sm-2 control-label" })
+        <div class="col-sm-10">
+         @Html.TextBoxFor(m => m.Description, new { @class = "form-control", placeholder = "What Client needs?" })
+        </div>
+    </div>
+
+
+    <div class="control-group">
+        <!-- Button -->
+        <div class="controls">
+            <button class="btn btn-success" type="submit">Press To Edit</button>
+        </div>
+    </div>
+}
