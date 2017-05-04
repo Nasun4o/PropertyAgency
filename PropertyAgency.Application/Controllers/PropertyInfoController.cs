@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace PropertyAgency.Application.Controllers
+﻿namespace PropertyAgency.Application.Controllers
 {
-    using Models.ViewModels.Landlord;
-    using Models.ViewModels.Tenant;
+    using System.Web.Mvc;
+    using PropertyAgency.Models.ViewModels.Landlord;
     using PropertyAgency.Models.ViewModels.Property;
+    using PropertyAgency.Models.ViewModels.Tenant;
     using PropertyAgency.Services;
+
     [Authorize]
     [RoutePrefix("Properties")]
     public class PropertyInfoController : Controller
@@ -24,29 +20,40 @@ namespace PropertyAgency.Application.Controllers
             this.landlordService = new LandlordService();
             this.tenantService = new TenantService();
         }
+        [HttpGet]
+        [Route("ShowAll")]
+        public ActionResult ShowAll(int? page)
+        {
+            ShowPropertiesViewModel model = this.propertyService.GetProperies(page);
+            return this.View(model);
+        }
 
+        [HttpGet]
         [Route("Show/Rent/")]
-        public ActionResult Rent()
+        public ActionResult Rent(int? page)
         {
-            ShowPropertiesViewModel model = this.propertyService.GetProperiesForRent();
+            ShowPropertiesViewModel model = this.propertyService.GetProperiesForRent(page);
             return this.View(model);
         }
+        [HttpGet]
         [Route("Show/Sale/")]
-        public ActionResult Sale()
+        public ActionResult Sale(int? page)
         {
-            ShowPropertiesViewModel model = this.propertyService.GetProperiesForSale();
+            ShowPropertiesViewModel model = this.propertyService.GetProperiesForSale(page);
             return this.View(model);
         }
+        [HttpGet]
         [Route("Show/Landlords")]
-        public ActionResult Landlords()
+        public ActionResult Landlords(int? page)
         {
-            LandlordsViewModel model = this.landlordService.GetAllLandlords();
+            LandlordsViewModel model = this.landlordService.GetAllLandlords(page);
             return this.View(model);
         }
+        [HttpGet]
         [Route("Show/Tenants")]
-        public ActionResult Tenants()
+        public ActionResult Tenants(int? page)
         {
-            TenantsViewModel model = this.tenantService.GetAllTenants();
+            TenantsViewModel model = this.tenantService.GetAllTenants(page);
             return this.View(model);
         }
     }

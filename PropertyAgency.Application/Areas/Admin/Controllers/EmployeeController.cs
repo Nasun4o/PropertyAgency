@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Net;
-using System.Web;
-using System.Web.Mvc;
-using PropertyAgency.Data;
-using PropertyAgency.Models.EntityModels;
-
-namespace PropertyAgency.Application.Areas.Admin.Controllers
+﻿namespace PropertyAgency.Application.Areas.Admin.Controllers
 {
+    using System.Data.Entity;
+    using System.Linq;
+    using System.Net;
+    using System.Web.Mvc;
+    using PropertyAgency.Data;
+    using PropertyAgency.Models.EntityModels;
+
     [Authorize(Roles = "Admin")]
     public class EmployeeController : Controller
     {

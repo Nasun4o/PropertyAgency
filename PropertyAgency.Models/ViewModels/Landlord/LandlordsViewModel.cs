@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PropertyAgency.Models.ViewModels.Landlord
+﻿namespace PropertyAgency.Models.ViewModels.Landlord
 {
+    using System.Collections.Generic;
+    using PropertyAgency.Models.PaginationModels;
+
     public class LandlordsViewModel
     {
         public IEnumerable<LandlordViewModel> Landlords { get; set; }
+
+        public Pager Pager { get; set; }
     }
 }

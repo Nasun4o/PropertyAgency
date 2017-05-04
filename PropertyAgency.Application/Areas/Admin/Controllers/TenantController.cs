@@ -22,13 +22,15 @@
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Add([Bind(Include = "FullName, PhoneNumber, Description")] TenantsBindingModel tenantsBindingModel)
         {
             if (ModelState.IsValid)
             {
                 this.tenantService.AddTenant(tenantsBindingModel);
             }
-            return this.Redirect("Success");
+            return this.RedirectToAction("Index", "ControlPanel");
         }
 
         /// <summary>

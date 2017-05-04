@@ -58,6 +58,8 @@ namespace PropertyAgency.Data.Migrations
                 roleManager.Create(role);
 
             }
+
+            
         }
     }
 }

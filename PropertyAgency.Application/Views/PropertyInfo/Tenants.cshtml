@@ -9,33 +9,67 @@
 <div class="table table-bordered table-responsive table-striped">
     <table class="table table-responsive">
         <thead>
-            @*TODO: SHOULD CHANGE CLASSES NAMES*@
-            <tr>
-                <th>Id</th>
-                <th class="full-address">Име</th>
-                <th class="apartment-size">Телефон</th>
-                <th class="number-of-rooms">Какво желае клиента</th>
-                <th class="number-of-rooms">Edit</th>
-
-
-            </tr>
+        <tr>
+            <th>Id</th>
+            <th class="full-address">Име</th>
+            <th class="apartment-size">Телефон</th>
+            <th class="number-of-rooms">Какво желае клиента</th>
+            <th class="number-of-rooms">Edit</th>
+        </tr>
         </thead>
         <tbody>
-            @foreach (var tenant in Model.Tenants)
-            {
-                <tr>
-                    <td class="number-of-rooms">&nbsp;@tenant.Id</td>
-                    <td>@tenant.FullName</td>
-                    <td class="full-address">&nbsp;@tenant.PhoneNumber</td>
-                    <td class="apartment-size">&nbsp;@tenant.Description</td>
-                    <td>
-                        <a href="../../EditTenant/@tenant.Id">Edit</a> |
-                        <a href="../../DeleteTenant/@tenant.Id">Delete</a>
-                    </td>
+        @foreach (var tenant in Model.Tenants)
+        {
+            <tr>
+                <td class="number-of-rooms">&nbsp;@tenant.Id</td>
+                <td>@tenant.FullName</td>
+                <td class="full-address">&nbsp;@tenant.PhoneNumber</td>
+                <td class="apartment-size">&nbsp;@tenant.Description</td>
+                <td>
+                    <a href="../../EditTenant/@tenant.Id">Edit</a> |
+                    <a href="../../DeleteTenant/@tenant.Id">Delete</a>
+                </td>
 
-                </tr>
-            }
+            </tr>
+        }
 
         </tbody>
     </table>
+</div>
+
+
+<div class="text-center pagination-margin-bot">
+
+
+    @if (Model.Pager.EndPage > 1)
+    {
+
+        <ul class="pagination">
+            @if (Model.Pager.CurrentPage > 1)
+            {
+                <li>
+                    <a href="~/Properties/Show/Tenants">First</a>
+                </li>
+                <li>
+                    <a href="~/Properties/Show/Tenants?page=@(Model.Pager.CurrentPage - 1)">Previous</a>
+                </li>
+            }
+
+            @for (var page = Model.Pager.StartPage; page <= Model.Pager.EndPage; page++)
+            {
+                <li class="@(page == Model.Pager.CurrentPage ? "active" : "")">
+                    <a href="~/Properties/Show/Tenants?page=@page">@page</a>
+                </li>    }
+
+            @if (Model.Pager.CurrentPage < Model.Pager.TotalPages)
+            {
+                <li>
+                    <a href="~/Properties/Show/Tenants?page=@(Model.Pager.CurrentPage + 1)">Next</a>
+                </li>
+                <li>
+                    <a href="~/Properties/Show/Tenants?page=@(Model.Pager.TotalPages)">Last</a>
+                </li>
+            }
+        </ul>
+    }
 </div>

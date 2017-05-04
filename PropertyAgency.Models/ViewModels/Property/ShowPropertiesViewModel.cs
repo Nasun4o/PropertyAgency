@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace PropertyAgency.Models.ViewModels.Property
 {
+    using PropertyAgency.Models.PaginationModels;
+
     public class ShowPropertiesViewModel
     {
-        public IEnumerable<PropertyInfoViewModel> PropertyInfoViewModels { get; set; } 
+        public IEnumerable<PropertyInfoViewModel> PropertyInfoViewModels { get; set; }
 
+        public Pager Pager { get; set; }
     }
 }

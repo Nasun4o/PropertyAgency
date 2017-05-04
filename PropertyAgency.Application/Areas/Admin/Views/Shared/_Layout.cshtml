@@ -50,9 +50,7 @@
                     </ul>
                     }
                     <li class="back"><i class="glyphicon glyphicon-arrow-left"></i>  @Html.ActionLink("Back", "Index", "Home", new { area = "" }, null)</li>
-               
-        
-                @*@Html.Partial("_LoginPartial")*@
+       
             </ul>
         </div>
     </div>
@@ -70,45 +68,3 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
-
-
-
-
-
-
-@*<div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            @Html.ActionLink("LUXORY", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-        </div>*@
-        @*<div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Add Landlord", "Add", "Landlord")</li>
-                <li>@Html.ActionLink("Add Property", "Add", "Property")</li>
-                <li>@Html.ActionLink("Add Tenant", "Add", "Tenant")</li>
-                <li>@Html.ActionLink("Employees", "Index", "Employee", new { area = "Admin" }, null)</li>
-                <li>@Html.ActionLink("Register Employee", "Register", "Account", new { area = "" }, null)</li>
-                <li>@Html.ActionLink("Back", "Index", "Home", new { area = "" }, null) </li>
-            </ul>
-        </div>
-    </div>
-</div>*@
-
-@*<div class="container body-content">
-    @RenderBody()
-    <hr />
-    <footer>
-        <p>&copy; @DateTime.Now.Year - Atanas Tankov</p>
-    </footer>
-</div>
-
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/bootstrap")
-@RenderSection("scripts", required: false)
-</body>
-</html>*@

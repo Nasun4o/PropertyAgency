@@ -36,6 +36,7 @@
         [Route("EditProperty")]
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult EditProperty([Bind(Exclude = "LandlordsList, LandlordId")] PropertyFormViewModel property)
         {
             if (ModelState.IsValid)
@@ -62,6 +63,7 @@
         [Route("EditLandlord")]
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult EditLandlord([Bind(Include = "Id, FullName, PhoneNumber, IsAcceptingAnimals")] LandlordViewModel landlord)
         {
             if (ModelState.IsValid)
@@ -87,6 +89,7 @@
         [Route("EditTenant")]
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult EditTenant([Bind(Include = "Id, FullName, PhoneNumber, Description")] TenantViewModel tenant)
         {
             if (ModelState.IsValid)

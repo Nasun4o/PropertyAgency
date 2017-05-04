@@ -9,6 +9,10 @@
 
     public class User : IdentityUser
     {
+
+        /// <summary>
+        /// This Id help us to work with the User account.
+        /// </summary>
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int UserId { get; set; }
 

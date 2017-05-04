@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PropertyAgency.Services
+﻿namespace PropertyAgency.Services
 {
+    using System.Collections.Generic;
     using AutoMapper;
     using PropertyAgency.Models.EntityModels;
     using PropertyAgency.Models.ViewModels.Landlord;

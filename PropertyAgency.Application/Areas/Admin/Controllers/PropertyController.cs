@@ -1,11 +1,8 @@
 ﻿namespace PropertyAgency.Application.Areas.Admin.Controllers
 {
-    using System;
     using System.Web.Mvc;
-    using PropertyAgency.Models.BindingModels;
     using PropertyAgency.Models.ViewModels.Property;
     using PropertyAgency.Services;
-    using Models.Enums;
 
     [Authorize(Roles = "Admin, Moderator")]
     public class PropertyController : Controller
@@ -29,19 +26,15 @@
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken()]
+        [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Add([Bind(Include = "FullAddress, ApartmentSize, NumberOfRooms, IsActive, Type, UrlPicture, Price, LandlordId")] PropertyFormViewModel propertyFormViewModelgModel)
         {
 
             if (ModelState.IsValid)
             {
                 this.propertyService.AddProperty(propertyFormViewModelgModel);
-                if (propertyFormViewModelgModel.Type == PropertyType.Rent)
-                {
-                    return this.RedirectToAction($"Show/Rent", "Properties", new { area = "" });
-                }
-
-                return this.RedirectToAction($"Show/Sale", "Properties", new { area = "" });
+                return this.RedirectToAction("Index", "ControlPanel");
             }
             PropertyFormViewModel model = this.propertyService.GeneratePropertyViewModel();
             return this.View(model);
@@ -51,10 +44,8 @@
         [Route("DeleteProperty/{id:regex([0-9]+)}")]
         public ActionResult DeleteProperty(int? id)
         {
-            //TODO: Returning PATH!!!
             this.propertyService.Delete(id);
-
-            return this.RedirectToAction($"Show/Rent", "Properties", new { area = "" });
+            return this.RedirectToAction($"ShowAll", "Properties", new { area = "" });
         }
     }
 }

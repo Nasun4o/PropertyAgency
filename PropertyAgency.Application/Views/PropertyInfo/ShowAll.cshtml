@@ -1,16 +1,15 @@
 ﻿@model PropertyAgency.Models.ViewModels.Property.ShowPropertiesViewModel
 
 @{
-    ViewBag.Title = "Sale";
+    ViewBag.Title = "ShowAll";
 }
 
-<h2 class="header-properties" >Имоти за продажба(Properties for Sale)</h2>
+<h2>ShowAll</h2>
+
 
 @Html.Partial("_ShowPropertiesPartial", Model)
 
-
 <div class="text-center pagination-margin-bot">
-
 
     @if (Model.Pager.EndPage > 1)
     {
@@ -19,26 +18,26 @@
             @if (Model.Pager.CurrentPage > 1)
             {
                 <li>
-                    <a href="~/Properties/Show/Sale">First</a>
+                    <a href="~/Properties/ShowAll">First</a>
                 </li>
                 <li>
-                    <a href="~/Properties/Show/Sale?page=@(Model.Pager.CurrentPage - 1)">Previous</a>
+                    <a href="~/Properties/ShowAll?page=@(Model.Pager.CurrentPage - 1)">Previous</a>
                 </li>
             }
 
             @for (var page = Model.Pager.StartPage; page <= Model.Pager.EndPage; page++)
             {
                 <li class="@(page == Model.Pager.CurrentPage ? "active" : "")">
-                    <a href="~/Properties/Show/Sale?page=@page">@page</a>
+                    <a href="~/Properties/ShowAll?page=@page">@page</a>
                 </li>    }
 
             @if (Model.Pager.CurrentPage < Model.Pager.TotalPages)
             {
                 <li>
-                    <a href="~/Properties/Show/Sale?page=@(Model.Pager.CurrentPage + 1)">Next</a>
+                    <a href="~/Properties/ShowAll?page=@(Model.Pager.CurrentPage + 1)">Next</a>
                 </li>
                 <li>
-                    <a href="~/Properties/Show/Sale?page=@(Model.Pager.TotalPages)">Last</a>
+                    <a href="~/Properties/ShowAll?page=@(Model.Pager.TotalPages)">Last</a>
                 </li>
             }
         </ul>

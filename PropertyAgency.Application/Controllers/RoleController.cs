@@ -1,19 +1,16 @@
-﻿using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-using PropertyAgency.Data;
-using PropertyAgency.Models.EntityModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace PropertyAgency.Application.Controllers
+﻿namespace PropertyAgency.Application.Controllers
 {
+    using System.Linq;
+    using System.Web.Mvc;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
+    using PropertyAgency.Data;
+    using PropertyAgency.Models.EntityModels;
+
     [Authorize]
     public class RoleController : Controller
     {
-        PropertyAgencyContext context;
+        readonly PropertyAgencyContext context;
        
         // GET: Role
         public RoleController()
@@ -24,7 +21,7 @@ namespace PropertyAgency.Application.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
-                if (!isAdminUser())
+                if (!this.IsAdminUser())
                 {
                     return RedirectToAction("Index", "Home");
                 }
@@ -33,17 +30,17 @@ namespace PropertyAgency.Application.Controllers
             {
                     return RedirectToAction("Index", "Home");
             }
-            var Roles = context.Roles.ToList();
-            return View(Roles);
+            var roles = context.Roles.ToList();
+            return View(roles);
         }
 
-        private bool isAdminUser()
+        private bool IsAdminUser()
         {
             if (User.Identity.IsAuthenticated)
             {
                 var user = User.Identity;
-                var UserManger = new UserManager<User>(new UserStore<User>(context));
-                var s = UserManger.GetRoles(user.GetUserId());
+                var userManger = new UserManager<User>(new UserStore<User>(context));
+                var s = userManger.GetRoles(user.GetUserId());
                 if (s[0].ToString() == "Admin")
                 {
                     return true;

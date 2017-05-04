@@ -5,9 +5,14 @@
     using PropertyAgency.Models.EntityModels;
     using PropertyAgency.Models.ViewModels.Landlord;
     using System.Collections.Generic;
+    using System.Linq;
+    using System.Security.Cryptography.X509Certificates;
+    using PropertyAgency.Models.PaginationModels;
+    using PropertyAgency.Models.ViewModels.Property;
 
     public class LandlordService : Service
     {
+        private const int NumberOfItemsInPage = 20;
         public void AddLandlord(LandlordsBindingModel landlordBindingModel)
         {
             Landlord landlord = Mapper.Map<Landlord>(landlordBindingModel);
@@ -15,19 +20,31 @@
             this.Context.SaveChanges();
         }
 
-        public LandlordsViewModel GetAllLandlords()
+        public LandlordsViewModel GetAllLandlords(int? page)
         {
             LandlordsViewModel model = new LandlordsViewModel();
             List<LandlordViewModel> landlordsList = new List<LandlordViewModel>();
 
-            var lords = this.Context.Landlords;
+            var lords = this.Context.Landlords.OrderBy(m => m.Id).ToArray();
 
-            foreach (var item in lords)
+            if (page == null)
             {
-                LandlordViewModel landlord = Mapper.Map<Landlord, LandlordViewModel>(item);
-                landlordsList.Add(landlord);
+                model.Pager = new Pager(lords.Count(), 1, NumberOfItemsInPage);
+
+                foreach (var item in lords.Take(20))
+                {
+                    LandlordViewModel landlord = Mapper.Map<Landlord, LandlordViewModel>(item);
+                    landlordsList.Add(landlord);
+                }
+                model.Landlords = landlordsList;
             }
-            model.Landlords = landlordsList;
+            else
+            {
+                model.Pager = new Pager(lords.Count(), (int)page, NumberOfItemsInPage);
+
+                model.Landlords = Mapper.Instance.Map<IEnumerable<Landlord>, IEnumerable<LandlordViewModel>>(
+                    lords.Skip((model.Pager.CurrentPage - 1) * model.Pager.PageSize).Take(model.Pager.PageSize));
+            }
             return model;
         }
 

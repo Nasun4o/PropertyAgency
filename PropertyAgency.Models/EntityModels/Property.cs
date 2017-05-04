@@ -30,6 +30,7 @@
         [Required(ErrorMessage = "The price of the Property is Required!")]
         [Range(0, Double.MaxValue)]
         public decimal? Price { get; set; }
+
     }
 
 }

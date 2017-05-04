@@ -1,21 +1,18 @@
-﻿using PropertyAgency.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-using PropertyAgency.Models.EntityModels;
-
-namespace PropertyAgency.Application.Controllers
+﻿namespace PropertyAgency.Application.Controllers
 {
+    using System;
+    using System.Web.Mvc;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
+    using PropertyAgency.Data;
+    using PropertyAgency.Models.EntityModels;
+
     [Authorize]
     public class UsersController : Controller
     {
         // GET: Users
 
-        public Boolean isAdminUser()
+        public Boolean IsAdminUser()
         {
             if (User.Identity.IsAuthenticated)
             {
@@ -42,7 +39,7 @@ namespace PropertyAgency.Application.Controllers
                 ViewBag.Name = user.Name;
                 ViewBag.displayMenu = "No";
 
-                if (isAdminUser())
+                if (this.IsAdminUser())
                 {
                     ViewBag.displayMenu = "Yes";
                 }

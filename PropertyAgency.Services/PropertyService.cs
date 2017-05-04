@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PropertyAgency.Services
+﻿namespace PropertyAgency.Services
 {
+    using System.Collections.Generic;
+    using System.Linq;
     using AutoMapper;
-    using PropertyAgency.Models.BindingModels;
     using PropertyAgency.Models.EntityModels;
     using PropertyAgency.Models.Enums;
+    using PropertyAgency.Models.PaginationModels;
     using PropertyAgency.Models.ViewModels.Landlord;
     using PropertyAgency.Models.ViewModels.Property;
 
@@ -42,30 +38,57 @@ namespace PropertyAgency.Services
             this.Context.SaveChanges();
         }
 
-        public ShowPropertiesViewModel GetProperiesForRent()
+        public ShowPropertiesViewModel GetProperiesForRent(int? page)
         {
             var rentProperties = this.Context.Properties.Where(p => p.Type == PropertyType.Rent).ToArray();
 
-            foreach (var item in rentProperties)
+            if (page == null)
             {
-                PropertyInfoViewModel property = Mapper.Map<Property, PropertyInfoViewModel>(item);
-                this.propertyInfo.Add(property);
+
+                this.model.Pager = new Pager(rentProperties.Count(), 1);
+
+
+                foreach (var item in rentProperties.Take(10))
+                {
+                    PropertyInfoViewModel property = Mapper.Map<Property, PropertyInfoViewModel>(item);
+                    this.propertyInfo.Add(property);
+                }
+                this.model.PropertyInfoViewModels = this.propertyInfo;
             }
-            model.PropertyInfoViewModels = this.propertyInfo;
+            else
+            {
+                this.model.Pager = new Pager(rentProperties.Count(), (int)page);
+
+                this.model.PropertyInfoViewModels = Mapper.Instance.Map<IEnumerable<Property>, IEnumerable<PropertyInfoViewModel>>(
+                    rentProperties.Skip((model.Pager.CurrentPage - 1) * this.model.Pager.PageSize).Take(model.Pager.PageSize));
+            }
+
             return this.model;
         }
 
-        public ShowPropertiesViewModel GetProperiesForSale()
+
+        public ShowPropertiesViewModel GetProperiesForSale(int? page)
         {
             var saleProperties = this.Context.Properties.Where(p => p.Type == PropertyType.Sale).ToArray();
 
-
-            foreach (var item in saleProperties)
+            if (page == null)
             {
-                PropertyInfoViewModel property = Mapper.Map<Property, PropertyInfoViewModel>(item);
-                this.propertyInfo.Add(property);
+                this.model.Pager = new Pager(saleProperties.Count(), 1);
+
+                foreach (var item in saleProperties.Take(10))
+                {
+                    PropertyInfoViewModel property = Mapper.Map<Property, PropertyInfoViewModel>(item);
+                    this.propertyInfo.Add(property);
+                }
+                this.model.PropertyInfoViewModels = this.propertyInfo;
             }
-            this.model.PropertyInfoViewModels = this.propertyInfo;
+            else
+            {
+                this.model.Pager = new Pager(saleProperties.Count(), (int)page);
+
+                this.model.PropertyInfoViewModels = Mapper.Instance.Map<IEnumerable<Property>, IEnumerable<PropertyInfoViewModel>>(
+                    saleProperties.Skip((model.Pager.CurrentPage - 1) * this.model.Pager.PageSize).Take(model.Pager.PageSize));
+            }
             return this.model;
         }
 
@@ -77,6 +100,31 @@ namespace PropertyAgency.Services
                 this.Context.Properties.Remove(property);
             }
             this.Context.SaveChanges();
+        }
+
+        public ShowPropertiesViewModel GetProperies(int? page)
+        {
+            var saleProperties = this.Context.Properties.ToArray();
+
+            if (page == null)
+            {
+                this.model.Pager = new Pager(saleProperties.Count(), 1);
+
+                foreach (var item in saleProperties.Take(10))
+                {
+                    PropertyInfoViewModel property = Mapper.Map<Property, PropertyInfoViewModel>(item);
+                    this.propertyInfo.Add(property);
+                }
+                this.model.PropertyInfoViewModels = this.propertyInfo;
+            }
+            else
+            {
+                this.model.Pager = new Pager(saleProperties.Count(), (int)page);
+
+                this.model.PropertyInfoViewModels = Mapper.Instance.Map<IEnumerable<Property>, IEnumerable<PropertyInfoViewModel>>(
+                    saleProperties.Skip((model.Pager.CurrentPage - 1) * this.model.Pager.PageSize).Take(model.Pager.PageSize));
+            }
+            return this.model;
         }
     }
 }

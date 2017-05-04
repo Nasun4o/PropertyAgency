@@ -3,7 +3,44 @@
 @{
     ViewBag.Title = "Properties";
 }
-
 <h2 class="header-properties">Имоти под наем (Properties for Rent)</h2>
 
 @Html.Partial("_ShowPropertiesPartial", Model)
+
+
+
+<div class="text-center pagination-margin-bot">
+
+
+    @if (Model.Pager.EndPage > 1)
+    {
+
+        <ul class="pagination">
+            @if (Model.Pager.CurrentPage > 1)
+            {
+                <li>
+                    <a href="~/Properties/Show/Rent">First</a>
+                </li>
+                <li>
+                    <a href="~/Properties/Show/Rent?page=@(Model.Pager.CurrentPage - 1)">Previous</a>
+                </li>
+            }
+
+            @for (var page = Model.Pager.StartPage; page <= Model.Pager.EndPage; page++)
+            {
+                <li class="@(page == Model.Pager.CurrentPage ? "active" : "")">
+                    <a href="~/Properties/Show/Rent?page=@page">@page</a>
+                </li>    }
+
+            @if (Model.Pager.CurrentPage < Model.Pager.TotalPages)
+            {
+                <li>
+                    <a href="~/Properties/Show/Rent?page=@(Model.Pager.CurrentPage + 1)">Next</a>
+                </li>
+                <li>
+                    <a href="~/Properties/Show/Rent?page=@(Model.Pager.TotalPages)">Last</a>
+                </li>
+            }
+        </ul>
+    }
+</div>

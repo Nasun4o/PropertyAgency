@@ -8,7 +8,7 @@
 <head>
     @Styles.Render("~/Content/propForm.css")
 </head>
-@using (Html.BeginForm("Edit", "Edit", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@using (Html.BeginForm("EditProperty", "Edit", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
 
     @Html.AntiForgeryToken()
@@ -70,19 +70,6 @@
             </div>
         </div>
     </div>
-    @*LandlordList*@
-    @*<div class="control-group">
-            @Html.LabelFor(m => m.LandlordsList, new { @class = "col-sm-2 control-label" })
-            <div class="col-sm-10">
-                <select class="form-control" id="LandlordsList" name="LandlordId">
-                    @foreach (var landlord in @Model.LandlordsList)
-                    {
-                        <option value="@landlord.Id">@landlord.FullName</option>
-                    }
-                </select>
-            </div>
-        </div>*@
-
     <div class="control-group">
         <!-- Button -->
         <div class="controls">

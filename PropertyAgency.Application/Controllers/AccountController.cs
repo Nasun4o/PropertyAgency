@@ -13,7 +13,7 @@
     using PropertyAgency.Models.ViewModels.Account;
     using WebGrease;
 
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
@@ -141,6 +141,7 @@
         // GET: /Account/Register
         
         [Authorize(Roles = "Admin")]
+
         //[Route("Admin/Account/Register")]
         public ActionResult Register()
         {
@@ -155,6 +156,7 @@
         //[Route("Admin/Account/Register")]
         [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)

@@ -276,6 +276,7 @@
     <Content Include="Views\PropertyInfo\Tenants.cshtml" />
     <Content Include="Views\Edit\EditLandlord.cshtml" />
     <Content Include="Views\Edit\EditTenant.cshtml" />
+    <Content Include="Views\PropertyInfo\ShowAll.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
