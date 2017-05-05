@@ -33,7 +33,7 @@
 }
 .back a {
         display: inline-block;
-    width: 96%;
+    width: 93%;
 }
 .nav-side-menu {
     position:inherit;
@@ -49,4 +49,11 @@
 .nav-side-menu .brand {
     font-size: 27px;
 }
+
 /*FORMS*/
+
+@media only screen and (max-width: 810px) {
+    .back a, .sub-menu li a {
+        width: 85%;
+    }
+}
