@@ -6,6 +6,7 @@
     using PropertyAgency.Models.ViewModels.Tenant;
     using PropertyAgency.Services;
 
+    [Authorize(Roles = "Admin, Moderator")]
     public class EditController : Controller
     {
         private EditService service;
@@ -20,6 +21,11 @@
             return View();
         }
 
+        /// <summary>
+        /// Here we should first catch our data about the porperty by given Id which we will Edit.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("EditProperty/{id:regex([0-9]+)}")]
         public ActionResult EditProperty(int id)
@@ -33,6 +39,13 @@
             return this.View(property);
         }
 
+
+        /// <summary>
+        /// If the ModelState is valid, our action will send the Model to our Service in which we will change the old data with a new one and will save in to the Database.
+        /// ValidateInput is set to false because only Admin and Moderator can insert Data in our Database so we know that we are protected from html tags
+        /// </summary>
+        /// <param name="property"></param>
+        /// <returns>ActionResult or our Property with new data.</returns>
         [Route("EditProperty")]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -48,6 +61,11 @@
             return this.View(property);
         }
 
+        /// <summary>
+        /// Here the logic is the same as the EditProperty Action.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("EditLandlord/{id:regex([0-9]+)}")]
         public ActionResult EditLandlord(int id)
@@ -60,6 +78,12 @@
             }
             return this.View(landlord);
         }
+
+        /// <summary>
+        /// Here the logic is the same as the EditProperty Action.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [Route("EditLandlord")]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -86,6 +110,12 @@
             }
             return this.View(tenant);
         }
+
+        /// <summary>
+        /// Here the logic is the same as the EditProperty Action.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [Route("EditTenant")]
         [HttpPost]
         [ValidateAntiForgeryToken]

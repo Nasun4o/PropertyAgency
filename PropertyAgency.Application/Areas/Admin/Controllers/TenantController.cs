@@ -7,8 +7,9 @@
     [Authorize(Roles = "Admin, Moderator")]
     public class TenantController : Controller
     {
-        // GET: Admin/Tenant
-
+        /// <summary>
+        /// Tenants Services is the logic behind the Controller
+        /// </summary>
         private TenantService tenantService;
       
         public TenantController()
@@ -20,7 +21,11 @@
         {
             return this.View();
         }
-
+        /// <summary>
+        /// Add new Tenant from Control Panel which takes BindingModel
+        /// </summary>
+        /// <param name="tenantsBindingModel"></param>
+        /// <returns>ActionResult or a New Tenant</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
@@ -29,8 +34,10 @@
             if (ModelState.IsValid)
             {
                 this.tenantService.AddTenant(tenantsBindingModel);
+                return this.RedirectToAction("Index", "ControlPanel");
             }
-            return this.RedirectToAction("Index", "ControlPanel");
+            // If Faild return to Form
+            return this.View(tenantsBindingModel);
         }
 
         /// <summary>

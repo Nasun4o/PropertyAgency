@@ -30,6 +30,10 @@
             return model;
         }
 
+        /// <summary>
+        /// This is the logic for Adding a new Property in our Database it's simple as it's look.
+        /// </summary>
+        /// <param name="model"></param>
         public void AddProperty(PropertyFormViewModel model)
         {
             Property property = Mapper.Map<Property>(model);
@@ -37,7 +41,10 @@
             this.Context.Properties.Add(property);
             this.Context.SaveChanges();
         }
-
+        /// <summary>
+        /// This is the logic that will Display our properties which are under Rent and will separate them into pages. Each page will contain 10 items.
+        /// </summary>
+        /// <param name="model"></param>
         public ShowPropertiesViewModel GetProperiesForRent(int? page)
         {
             var rentProperties = this.Context.Properties.Where(p => p.Type == PropertyType.Rent).ToArray();
@@ -46,7 +53,6 @@
             {
 
                 this.model.Pager = new Pager(rentProperties.Count(), 1);
-
 
                 foreach (var item in rentProperties.Take(10))
                 {
@@ -66,7 +72,10 @@
             return this.model;
         }
 
-
+        /// <summary>
+        /// This is the logic that will Display our properties which are for Sale and will separate them into pages. Each page will contain 10 items.
+        /// </summary>
+        /// <param name="model"></param>
         public ShowPropertiesViewModel GetProperiesForSale(int? page)
         {
             var saleProperties = this.Context.Properties.Where(p => p.Type == PropertyType.Sale).ToArray();
@@ -102,6 +111,10 @@
             this.Context.SaveChanges();
         }
 
+        /// <summary>
+        /// This is the logic that will Display All our properties and will separate them into pages. Each page will contain 10 items.
+        /// </summary>
+        /// <param name="model"></param>
         public ShowPropertiesViewModel GetProperies(int? page)
         {
             var saleProperties = this.Context.Properties.ToArray();

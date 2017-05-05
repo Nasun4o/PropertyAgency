@@ -9,6 +9,12 @@
 
     public class EditService : Service
     {
+
+        /// <summary>
+        /// Here we fetch our data from the Database by ID and return the model with his data to be Edited, Also we use AutoMapper to Map or Entity models to our View/Binding Models.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public PropertyFormViewModel EditPropertyById(int id)
         {
             var property = this.Context.Properties.Find(id);
@@ -26,6 +32,10 @@
             return model;
         }
 
+        /// <summary>
+        /// Here we set the new Data Manualy.
+        /// </summary>
+        /// <returns></returns>
         public void EditProperty(PropertyFormViewModel model)
         {
             var propertyToEdit = this.Context.Properties.Find(model.Id);
@@ -43,7 +53,11 @@
 
             this.Context.SaveChanges();
         }
-
+        /// <summary>
+        /// The logic is the same as the EditProperty Action
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public LandlordViewModel EditLandlordById(int id)
         {
             var landlord = this.Context.Landlords.Find(id);
@@ -52,6 +66,11 @@
             
             return model;
         }
+        /// <summary>
+        /// The logic is the same as the EditProperty Action
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public void EditLandlordById(LandlordViewModel model)
         {
             var landlordToEdit = this.Context.Landlords.Find(model.Id);
@@ -63,7 +82,11 @@
             this.Context.SaveChanges();
         }
 
-
+        /// <summary>
+        /// The logic is the same as the EditProperty Action
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public TenantViewModel EditTenantById(int id)
         {
             var tenant = this.Context.Tenants.Find(id);
@@ -72,6 +95,11 @@
 
             return model;
         }
+        /// <summary>
+        /// The logic is the same as the EditProperty Action
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public void EditTenantById(TenantViewModel model)
         {
             var tenantToEdit = this.Context.Tenants.Find(model.Id);

@@ -7,6 +7,10 @@
     using PropertyAgency.Data;
     using PropertyAgency.Models.EntityModels;
 
+
+    /// <summary>
+    /// Controller with Basic CRUD operations.
+    /// </summary>
     [Authorize(Roles = "Admin")]
     public class EmployeeController : Controller
     {

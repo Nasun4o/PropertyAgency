@@ -34,6 +34,9 @@ textarea {
     width: 10%;
     min-height: 949px;
 }
+.field-validation-error {
+    color: red;
+}
 .header-properties {
     text-align: center;
 }

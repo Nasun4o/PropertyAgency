@@ -21,7 +21,7 @@
         [Required(ErrorMessage = "This field is Required!")]
         public bool IsActive { get; set; }
         /// <summary>
-        /// This enumeration help us to know If the property will be on sales market or under rent
+        /// This enumeration help us to know If the property will be on sales market or in rents market.
         /// </summary>
         [Required(ErrorMessage = "This field is Required!")]
         public PropertyType Type { get; set; }

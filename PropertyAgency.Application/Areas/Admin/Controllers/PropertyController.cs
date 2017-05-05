@@ -25,6 +25,10 @@
             return this.View(model);
         }
 
+        /// <summary>
+        /// Adding new Property to our Database by given ViewModel which come from our Form.
+        /// </summary>
+        /// <returns>ActionResult(New Property)</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
@@ -40,6 +44,11 @@
             return this.View(model);
         }
 
+        /// <summary>
+        /// Delete single Property by clicking on Delete button which sends Id to our Action.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("DeleteProperty/{id:regex([0-9]+)}")]
         public ActionResult DeleteProperty(int? id)

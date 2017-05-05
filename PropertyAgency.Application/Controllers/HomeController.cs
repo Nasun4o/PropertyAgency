@@ -2,6 +2,9 @@
 {
     using System.Web.Mvc;
 
+    /// <summary>
+    /// This is the standart Controller which can be reached by anonymous users.
+    /// </summary>
     public class HomeController : Controller
     {
         public ActionResult Index()

@@ -18,6 +18,12 @@
             this.Context.SaveChanges();
         }
 
+
+        /// <summary>
+        /// This is the logic which will Display All Tenants and will separate them in pages and each page will show 20 items.
+        /// </summary>
+        /// <param name="page"></param>
+        /// <returns></returns>
         public TenantsViewModel GetAllTenants(int? page)
         {
             TenantsViewModel model = new TenantsViewModel();
@@ -52,8 +58,8 @@
             if (tenant != null)
             {
                 this.Context.Tenants.Remove(tenant);
+                this.Context.SaveChanges();
             }
-            this.Context.SaveChanges();
         }
     }
 }

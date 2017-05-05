@@ -24,6 +24,11 @@
             return this.View();
         }
 
+        /// <summary>
+        /// Adding new Landlord to our Database by given BindingModel which come from our Form.
+        /// </summary>
+        /// <param name="landlordsBindingModel"></param>
+        /// <returns>ActionResult(New Landlord)</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]

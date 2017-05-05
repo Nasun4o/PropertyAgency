@@ -20,6 +20,11 @@
             this.Context.SaveChanges();
         }
 
+        /// <summary>
+        /// This is the logic which will Display All Landlords and will separate them in pages and each page will show 20 items.
+        /// </summary>
+        /// <param name="page"></param>
+        /// <returns></returns>
         public LandlordsViewModel GetAllLandlords(int? page)
         {
             LandlordsViewModel model = new LandlordsViewModel();
@@ -50,7 +55,12 @@
 
         public void Delete(int? id)
         {
-            this.Context.Landlords.Remove(this.Context.Landlords.Find(id));
+            var landlord = this.Context.Landlords.Find(id);
+            if (landlord == null)
+            {
+                return;
+            }
+            this.Context.Landlords.Remove(landlord);
             this.Context.SaveChanges();
         }
     }

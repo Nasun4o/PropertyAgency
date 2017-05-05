@@ -19,12 +19,16 @@
         [Range(0, 30)]
         public int NumberOfRooms { get; set; }
 
+
+        //This will show us if the property is Avaible for Rent or Sale
         [Required(ErrorMessage = "This field is Required!")]
         public bool IsActive { get; set; }
-        //For Rent or for Sale
+
+        //This Enum is about the Type of Property(For Sale or Rent)
         [Required(ErrorMessage = "This field is Required!")]
         public PropertyType Type { get; set; }
-        //TODO: Images should be array of pics
+
+        //TODO: Images should be Byte array form more Images
         public string UrlPicture { get; set; }
 
         [Required(ErrorMessage = "The price of the Property is Required!")]
