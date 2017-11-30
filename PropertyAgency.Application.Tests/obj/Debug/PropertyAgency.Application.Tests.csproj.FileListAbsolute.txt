@@ -61,3 +61,8 @@ C:\Users\PC-PC\Desktop\PropertyAgency\PropertyAgency.Application.Tests\bin\Debug
 C:\Users\PC-PC\Desktop\PropertyAgency\PropertyAgency.Application.Tests\obj\Debug\PropertyAgency.Application.Tests.csprojResolveAssemblyReference.cache
 C:\Users\PC-PC\Desktop\PropertyAgency\PropertyAgency.Application.Tests\obj\Debug\PropertyAgency.Application.Tests.dll
 C:\Users\PC-PC\Desktop\PropertyAgency\PropertyAgency.Application.Tests\obj\Debug\PropertyAgency.Application.Tests.pdb
+C:\Users\PC-PC\Desktop\PropertyAgency\PropertyAgency.Application.Tests\bin\Debug\PropertyAgency.Application.dll.config
+C:\Users\PC-PC\Desktop\PropertyAgency\PropertyAgency.Application.Tests\bin\Debug\PropertyAgency.Models.dll.config
+C:\Users\PC-PC\Desktop\PropertyAgency\PropertyAgency.Application.Tests\bin\Debug\PropertyAgency.Data.dll.config
+C:\Users\PC-PC\Desktop\PropertyAgency\PropertyAgency.Application.Tests\bin\Debug\PropertyAgency.Services.dll.config
+C:\Users\PC-PC\Desktop\PropertyAgency\PropertyAgency.Application.Tests\obj\Debug\PropertyAgency.Application.Tests.csproj.CoreCompileInputs.cache

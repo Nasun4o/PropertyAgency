@@ -30,3 +30,7 @@ C:\Users\PC-PC\Desktop\PropertyAgency\PropertyAgency.Data\bin\Debug\System.Web.W
 C:\Users\PC-PC\Desktop\PropertyAgency\PropertyAgency.Data\obj\Debug\PropertyAgency.Data.csprojResolveAssemblyReference.cache
 C:\Users\PC-PC\Desktop\PropertyAgency\PropertyAgency.Data\obj\Debug\PropertyAgency.Data.dll
 C:\Users\PC-PC\Desktop\PropertyAgency\PropertyAgency.Data\obj\Debug\PropertyAgency.Data.pdb
+C:\Users\PC-PC\Desktop\PropertyAgency\PropertyAgency.Data\bin\Debug\PropertyAgency.Models.dll.config
+C:\Users\PC-PC\Desktop\PropertyAgency\PropertyAgency.Data\obj\Debug\PropertyAgency.Data.csproj.CoreCompileInputs.cache
+C:\Users\PC-PC\Desktop\PropertyAgency\PropertyAgency.Data\obj\Debug\PropertyAgency.Data.Migrations.FilePathAdded.resources
+C:\Users\PC-PC\Desktop\PropertyAgency\PropertyAgency.Data\obj\Debug\PropertyAgency.Data.csproj.GenerateResource.Cache

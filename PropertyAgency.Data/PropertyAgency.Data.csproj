@@ -65,6 +65,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data.cs" />
+    <Compile Include="Migrations\201711302022419_FilePathAdded.cs" />
+    <Compile Include="Migrations\201711302022419_FilePathAdded.Designer.cs">
+      <DependentUpon>201711302022419_FilePathAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PropertyAgencyContext.cs" />
@@ -78,6 +82,11 @@
       <Project>{F5B33AEC-D886-42B6-BCE4-B3BC7EF97D35}</Project>
       <Name>PropertyAgency.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201711302022419_FilePathAdded.resx">
+      <DependentUpon>201711302022419_FilePathAdded.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -14,8 +14,15 @@ body {
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
+td {
+    color: #fff;
+    vertical-align: initial!important;
+}
 .dl-horizontal dt {
     white-space: normal;
+}
+td a {
+    color: blue!important;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */

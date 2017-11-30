@@ -3,6 +3,8 @@
     using System.Web.Mvc;
     using PropertyAgency.Models.ViewModels.Property;
     using PropertyAgency.Services;
+    using System.Web;
+    using PropertyAgency.Models.EntityModels;
 
     [Authorize(Roles = "Admin, Moderator")]
     public class PropertyController : Controller
@@ -32,12 +34,14 @@
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
-        public ActionResult Add([Bind(Include = "FullAddress, ApartmentSize, NumberOfRooms, IsActive, Type, UrlPicture, Price, LandlordId")] PropertyFormViewModel propertyFormViewModelgModel)
+        public ActionResult Add([Bind(Include = "FullAddress, ApartmentSize, NumberOfRooms, IsActive, Type, UrlPicture, Price, LandlordId")] PropertyFormViewModel propertyFormViewModelgModel, HttpPostedFileBase upload)
         {
 
             if (ModelState.IsValid)
             {
-                this.propertyService.AddProperty(propertyFormViewModelgModel);
+                
+                this.propertyService.AddProperty(propertyFormViewModelgModel, upload);
+
                 return this.RedirectToAction("Index", "ControlPanel");
             }
             PropertyFormViewModel model = this.propertyService.GeneratePropertyViewModel();

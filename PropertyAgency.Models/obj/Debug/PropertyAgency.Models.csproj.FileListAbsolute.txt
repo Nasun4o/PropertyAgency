@@ -30,3 +30,4 @@ C:\Users\PC-PC\Desktop\PropertyAgency\PropertyAgency.Models\bin\Debug\System.Web
 C:\Users\PC-PC\Desktop\PropertyAgency\PropertyAgency.Models\obj\Debug\PropertyAgency.Models.csprojResolveAssemblyReference.cache
 C:\Users\PC-PC\Desktop\PropertyAgency\PropertyAgency.Models\obj\Debug\PropertyAgency.Models.dll
 C:\Users\PC-PC\Desktop\PropertyAgency\PropertyAgency.Models\obj\Debug\PropertyAgency.Models.pdb
+C:\Users\PC-PC\Desktop\PropertyAgency\PropertyAgency.Models\obj\Debug\PropertyAgency.Models.csproj.CoreCompileInputs.cache

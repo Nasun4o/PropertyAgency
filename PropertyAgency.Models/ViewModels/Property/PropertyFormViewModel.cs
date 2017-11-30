@@ -5,6 +5,7 @@
     using System.ComponentModel.DataAnnotations;
     using PropertyAgency.Models.Enums;
     using PropertyAgency.Models.ViewModels.Landlord;
+    using PropertyAgency.Models.EntityModels;
 
     public class PropertyFormViewModel
     {
@@ -31,8 +32,9 @@
         [Required(ErrorMessage = "This field is Required!")]
         public PropertyType Type { get; set; }
         //TODO: Images should be array of pics
-        [Required(ErrorMessage = "Picture Address is Required!")]
-        public string UrlPicture { get; set; }
+        //[Required(ErrorMessage = "Picture Address is Required!")]
+        //public string UrlPicture { get; set; }
+        public string FilePaths { get; set; }
 
         [Required(ErrorMessage = "The price of the Property is Required!")]
         [Range(0, Double.MaxValue)]

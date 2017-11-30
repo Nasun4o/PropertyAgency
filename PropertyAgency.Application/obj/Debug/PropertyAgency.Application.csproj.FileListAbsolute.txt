@@ -75,3 +75,7 @@ C:\Users\PC-PC\Desktop\PropertyAgency\PropertyAgency.Application\bin\Microsoft.O
 C:\Users\PC-PC\Desktop\PropertyAgency\PropertyAgency.Application\obj\Debug\PropertyAgency.Application.csprojResolveAssemblyReference.cache
 C:\Users\PC-PC\Desktop\PropertyAgency\PropertyAgency.Application\obj\Debug\PropertyAgency.Application.dll
 C:\Users\PC-PC\Desktop\PropertyAgency\PropertyAgency.Application\obj\Debug\PropertyAgency.Application.pdb
+C:\Users\PC-PC\Desktop\PropertyAgency\PropertyAgency.Application\bin\PropertyAgency.Data.dll.config
+C:\Users\PC-PC\Desktop\PropertyAgency\PropertyAgency.Application\bin\PropertyAgency.Models.dll.config
+C:\Users\PC-PC\Desktop\PropertyAgency\PropertyAgency.Application\bin\PropertyAgency.Services.dll.config
+C:\Users\PC-PC\Desktop\PropertyAgency\PropertyAgency.Application\obj\Debug\PropertyAgency.Application.csproj.CoreCompileInputs.cache

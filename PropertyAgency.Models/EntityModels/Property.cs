@@ -3,6 +3,7 @@
     using System;
     using System.ComponentModel.DataAnnotations;
     using PropertyAgency.Models.Enums;
+    using System.Collections.Generic;
 
     public class Property
     {
@@ -13,7 +14,7 @@
         [MinLength(4), MaxLength(30)]
         public string FullAddress { get; set; }
         [Required(ErrorMessage = "Property Size is Required!")]
-        [Range(15,Double.MaxValue)]
+        [Range(15, Double.MaxValue)]
         public double? ApartmentSize { get; set; }
         [Required(ErrorMessage = "This field is Required!")]
         [Range(0, 30)]
@@ -26,11 +27,12 @@
         [Required(ErrorMessage = "This field is Required!")]
         public PropertyType Type { get; set; }
         //TODO: Images should be array of pics
-        public string UrlPicture { get; set; }
+        //public string UrlPicture { get; set; }
         [Required(ErrorMessage = "The price of the Property is Required!")]
         [Range(0, Double.MaxValue)]
         public decimal? Price { get; set; }
 
+        public virtual ICollection<FilePath> FilePaths { get; set; }
     }
 
 }

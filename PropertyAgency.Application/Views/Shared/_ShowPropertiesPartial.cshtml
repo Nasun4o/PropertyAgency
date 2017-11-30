@@ -21,7 +21,9 @@
         <tbody>
         @foreach (var property in Model.PropertyInfoViewModels)
         {
-            <tr>
+            if (property.IsActive)
+            {
+            <tr style="background: #38c938;">
                 <td><img class="img-rounded" src="@property.UrlPicture" width="150" height="150"/></td>
                 <td class="full-address">&nbsp;@property.FullAddress</td>
                 <td class="apartment-size">&nbsp;@property.ApartmentSize кв.м</td>
@@ -34,6 +36,23 @@
                     <a href="../../DeleteProperty/@property.Id">Delete</a>
                 </td>
             </tr>
+            }
+            else
+            {
+                <tr style="background: red;">
+                    <td><img class="img-rounded" src="@property.UrlPicture" width="150" height="150" /></td>
+                    <td class="full-address">&nbsp;@property.FullAddress</td>
+                    <td class="apartment-size">&nbsp;@property.ApartmentSize кв.м</td>
+                    <td class="number-of-rooms">&nbsp;@property.NumberOfRooms</td>
+                    <td class="property-isActive">&nbsp;@property.IsActive</td>
+                    <td class="price">&nbsp;@property.Price лв.</td>
+                    <td class="landlord-name">&nbsp;@property.LandlordName</td>
+                    <td>
+                        <a href="../../EditProperty/@property.Id">Edit</a> |
+                        <a href="../../DeleteProperty/@property.Id">Delete</a>
+                    </td>
+                </tr>
+            }
         }
 
         </tbody>

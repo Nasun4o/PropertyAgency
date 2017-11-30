@@ -48,7 +48,7 @@
                 propertyToEdit.IsActive = model.IsActive;
                 propertyToEdit.NumberOfRooms = model.NumberOfRooms;
                 propertyToEdit.Price = model.Price;
-                propertyToEdit.UrlPicture = model.UrlPicture;
+                //propertyToEdit.UrlPicture = model.UrlPicture;
             }
 
             this.Context.SaveChanges();
