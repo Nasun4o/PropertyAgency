@@ -36,21 +36,11 @@
         /// This is the logic for Adding a new Property in our Database it's simple as it's look.
         /// </summary>
         /// <param name="model"></param>
-        public void AddProperty(PropertyFormViewModel model, HttpPostedFileBase upload)
+        public void AddProperty(PropertyFormViewModel model)
         {
            
 
             Property property = Mapper.Map<Property>(model);
-
-            if (upload != null && upload.ContentLength > 0)
-            {
-                var photo = new FilePath
-                {
-                    FileName = Guid.NewGuid().ToString() + System.IO.Path.GetExtension(upload.FileName)
-                };
-                property.FilePaths = new List<FilePath>();
-                property.FilePaths.Add(photo);
-            }
 
             property.Owner = this.Context.Landlords.FirstOrDefault(m => m.Id == model.LandlordId);
             this.Context.Properties.Add(property);

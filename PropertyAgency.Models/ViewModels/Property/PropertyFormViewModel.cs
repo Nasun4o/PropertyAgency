@@ -32,8 +32,8 @@
         [Required(ErrorMessage = "This field is Required!")]
         public PropertyType Type { get; set; }
         //TODO: Images should be array of pics
-        //[Required(ErrorMessage = "Picture Address is Required!")]
-        //public string UrlPicture { get; set; }
+        [Required(ErrorMessage = "Picture Address is Required!")]
+        public string UrlPicture { get; set; }
         public string FilePaths { get; set; }
 
         [Required(ErrorMessage = "The price of the Property is Required!")]

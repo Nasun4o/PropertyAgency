@@ -3,7 +3,6 @@
     using System;
     using System.ComponentModel.DataAnnotations;
     using PropertyAgency.Models.Enums;
-    using System.Collections.Generic;
 
     public class Property
     {
@@ -27,12 +26,11 @@
         [Required(ErrorMessage = "This field is Required!")]
         public PropertyType Type { get; set; }
         //TODO: Images should be array of pics
-        //public string UrlPicture { get; set; }
+        public string UrlPicture { get; set; }
         [Required(ErrorMessage = "The price of the Property is Required!")]
         [Range(0, Double.MaxValue)]
         public decimal? Price { get; set; }
 
-        public virtual ICollection<FilePath> FilePaths { get; set; }
     }
 
 }

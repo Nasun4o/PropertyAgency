@@ -101,7 +101,6 @@
     <Compile Include="BindingModels\LandlordsBindingModel.cs" />
     <Compile Include="BindingModels\PropertyBindingModel.cs" />
     <Compile Include="BindingModels\TenantsBindingModel.cs" />
-    <Compile Include="EntityModels\FilePath.cs" />
     <Compile Include="EntityModels\Property.cs" />
     <Compile Include="EntityModels\Landlord.cs" />
     <Compile Include="EntityModels\Tenant.cs" />

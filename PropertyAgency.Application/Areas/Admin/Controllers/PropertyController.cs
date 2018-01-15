@@ -40,7 +40,7 @@
             if (ModelState.IsValid)
             {
                 
-                this.propertyService.AddProperty(propertyFormViewModelgModel, upload);
+                this.propertyService.AddProperty(propertyFormViewModelgModel);
 
                 return this.RedirectToAction("Index", "ControlPanel");
             }
